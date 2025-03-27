@@ -1,5 +1,5 @@
 export default {
-    base: '/my-docs/',
+    base: '/vitepress-docs/',
     title: 'fsl', //站点标题
     description: '公司项目总结',//mate标签description，多用于搜索引擎抓取摘要
     head: [
