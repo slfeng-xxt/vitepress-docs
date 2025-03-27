@@ -3,7 +3,7 @@ export default {
     title: 'fsl', //站点标题
     description: '公司项目总结',//mate标签description，多用于搜索引擎抓取摘要
     head: [
-      ['link', { rel: 'icon', href: '/favicon.ico' }], // 添加图标
+      ['link', { rel: 'icon', href: '/vitepress-docs/favicon.ico' }], // 添加图标
     ],
     themeConfig: {
         siteTitle: "开博前端项目汇总",
