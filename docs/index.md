@@ -13,8 +13,8 @@ hero:
       text: Get Started
       link: /guide/index.md
     - theme: alt
-      text: View project on GitLab
-      link: http://192.168.20.76/dashboard/projects
+      text: View project on GitHub
+      link: https://github.com/slfeng-xxt/vitepress-docs
 
 features:
   - icon: ⚡️

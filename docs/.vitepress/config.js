@@ -34,8 +34,8 @@ export default {
           { text: "gitlab145", link: "http://192.168.20.145/dashboard/projects" }, // 外链
         ],
         socialLinks: [
-          { icon: "github", link: "https://gitee.com" },
-          { icon: 'qq', link: '...' },
+          { icon: "github", link: "https://github.com/slfeng-xxt/vitepress-docs" },
+          // { icon: 'qq', link: '...' },
           // You can also add custom icons by passing SVG as string:
           {
             icon: {
