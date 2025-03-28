@@ -38,7 +38,7 @@ jobs:
     # node v20 运行
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [18]
 
     steps:
       # 拉取代码
@@ -71,7 +71,7 @@ jobs:
       - name: Build blog project
         run: |
           echo ${{ github.workspace }}
-          pnpm build
+          pnpm docs:build
 
         # 资源拷贝
       - name: Build with Jekyll
