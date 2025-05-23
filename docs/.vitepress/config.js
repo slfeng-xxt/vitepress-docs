@@ -114,6 +114,29 @@ export default {
             collapsed:true,
             items: [
               {
+                text: "javascript",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "原型&原型链", link: "/course/javascript/原型&原型链" },
+                  { text: "作用域", link: "/course/javascript/作用域" },
+                  { text: "执行上下文", link: "/course/javascript/执行上下文" },
+                  { text: "this", link: "/course/javascript/this" },
+                  { text: "闭包", link: "/course/javascript/闭包" },
+                  { text: "call、apply、bind", link: "/course/javascript/call" },
+                  { text: "new", link: "/course/javascript/new" },
+                  { text: "promise", link: "/course/javascript/promise" },
+                  { text: "浏览器事件", link: "/course/javascript/浏览器事件" },
+                  { text: "浏览器请求", link: "/course/javascript/浏览器请求" },
+                  { text: "模块化", link: "/course/javascript/模块化" },
+                  { text: "垃圾回收", link: "/course/javascript/GC" },
+                  { text: "运行机制", link: "/course/javascript/运行机制" },
+                  { text: "函数式编程", link: "/course/javascript/函数式编程" },
+                  { text: "es6", link: "/course/javascript/es6" },
+                  { text: "js编译器", link: "/course/javascript/编译器"}
+                ]
+              },
+              {
                 text: "vue",
                 link: "/course/vue",
               },
