@@ -1,6 +1,6 @@
 # this
 
-## 0.前提了解
+## 前提了解
 
 ECMAScript 的类型分为**语言类型**和**规范类型**。
 
@@ -18,11 +18,11 @@ Reference 的构成，由三个组成部分，分别是：
 
 [JavaScript 深入之从 ECMAScript 规范解读 this](https://www.bookstack.cn/read/mqyqingfeng-JavaScript-advance/cb75ffa87707939f.md)
 
-#### 1. this 的基本概念
+## 1. this 的基本概念
 
 在 JavaScript 中，this 是一个特殊的关键字，它引用的是函数运行时所在的上下文（context）。换句话说，this 的值取决于函数如何被调用，而不是函数如何被定义。谁调用谁就是 this
 
-#### 2. this 的几种常见绑定
+## 2. this 的几种常见绑定
 
 **默认绑定（Global/Window Object）**：在全局作用域或普通函数调用中，this 通常指向全局对象（在浏览器中是 window）。
 
@@ -78,7 +78,7 @@ var obj = {
 obj.foo();
 ```
 
-#### 3.注意事项
+## 3.注意事项
 
 this 的值在函数执行时确定，而不是在函数定义时。
 嵌套函数中的 this 通常不会继承外部函数的 this 值，除非使用 call、apply、bind 或箭头函数。

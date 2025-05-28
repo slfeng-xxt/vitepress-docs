@@ -132,13 +132,20 @@ export default {
                   { text: "垃圾回收", link: "/course/javascript/GC" },
                   { text: "运行机制", link: "/course/javascript/运行机制" },
                   { text: "函数式编程", link: "/course/javascript/函数式编程" },
-                  { text: "es6", link: "/course/javascript/es6" },
-                  { text: "js编译器", link: "/course/javascript/编译器"}
+                  { text: "es6", link: "/course/javascript/ES6" },
+                  { text: "babel", link: "/course/javascript/编译器"},
+                  { text: "TS", link: "/course/javascript/TS" },
                 ]
               },
               {
                 text: "vue",
-                link: "/course/vue",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "vue2", link: "/course/vue/vue2" },
+                  { text: "vue3", link: "/course/vue/vue3" },
+                  { text: "vue状态管理", link: "/course/vue/状态管理" },
+                ]
               },
               {
                 text: "react",

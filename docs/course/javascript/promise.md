@@ -1,19 +1,23 @@
-### 一、Promise 基础概念
+# Promise
+
+目的：解决异步编程的问题
+
+## 1. Promise 基础概念
 
 前端异步编程
 
-#### 定义
+### 定义
 
 Promise 是一个构造函数，用于表示一个可能现在还没有结果，但将来某一时刻会完成的异步操作。
 它封装了异步操作的成功值和失败原因（或异常）。
 
-#### 状态
+### 状态
 
 Promise 有三种状态：Pending（进行中）、Fulfilled（已成功）和 Rejected（已失败）。
 状态只能由 Pending 转变为 Fulfilled 或 Rejected，且状态一旦改变就不能再变。
 throw 等同于 reject
 
-#### 方法
+### 方法
 
 ```js
 // 异步操作方法定义
@@ -42,7 +46,7 @@ p.then(
 - catch(onRejected)：是.then(null, onRejected)的简写，用于捕获 Promise 链中的错误。
 - finally(onFinally)：无论 Promise 最终状态如何，都会执行该函数。
 
-### 二、promise 原理
+## 2. promise 原理
 
 1. 状态的变更（resolve -> Fulfilled reject -> Rejected）
 2. 状态只变更一次
@@ -56,7 +60,7 @@ p.then(
    5.3 allSettled() ---把每一个 Promise 的结果，集合成数组后返回；
    5.4 any() ---如果有一个 Promise 成功，则返回这个成功结果;如果所有 Promise 都失败，则报错；
 
-### 三、promise 实现
+## 3. promise 实现
 
 ```js
 class MyPromise {
@@ -175,9 +179,9 @@ class MyPromise {
 }
 ```
 
-### 4.async/await（Generator 和 Promise ）
+## 4.async/await（Generator 和 Promise ）
 
-#### 用同步的方式执行异步操作
+### 用同步的方式执行异步操作
 
 ```js
 request(5).then((res1) => {
@@ -196,7 +200,7 @@ async function fn() {
 fn();
 ```
 
-#### async
+### async
 
 **Q：什么是 async？async 是一个位于 function 之前的前缀，只有 async 函数中，才能使用 await。那 async 执行完是返回是什么？**
 **_A: async 是一个通过异步执行并隐式返回 Promise 作为结果的函数_**
@@ -218,14 +222,14 @@ console.log(fn(10)); // Promise {<fulfilled>: 10}
 fn(10).then((res) => console.log(res)); // 10
 ```
 
-#### await
+### await
 
 **Q：await 是什么?**
 **_A: 将 await 后面的任务添加到微任务队列等待被执行_**
 
-#### 总结：
+### 总结
 
-```
+```txt
 1. await只能在async函数中使用，不然会报错；
 2. async函数返回的是一个Promise对象，有无值看有无return值；
 3. await后面最好是接Promise，虽然接其他值也能达到排队效；
@@ -235,9 +239,9 @@ fn(10).then((res) => console.log(res)); // 10
 **async/await 是一种语法糖，用到的是 ES6 里的迭代函数——generator 函数**
 --> 先分析有哪些功能，再去对应实现 ===> Generator + Promise = async/await
 
-### 5.generator 函数
+## 5.generator 函数
 
-#### 5.1 介绍
+### 5.1 介绍
 
 generator 函数跟普通函数在写法上的区别就是，多了一个星号 \* ，并且只有在 generator 函数中才能使用 yield，而 yield 相当于 generator 函数执行的中途暂停点，而怎么才能暂停后继续走呢？那就得使用到 next 方法，next 方法执行后会返回一个对象，对象中有 value 和 done 两个属性
 
@@ -324,10 +328,10 @@ console.log(g.next(22222));
 // { value: 3, done: true }
 ```
 
-#### 5.2 实现 async/await
+### 5.2 实现 async/await
 
-- 1. yield 后面接 Promise；
-- 2. next 函数传参；
+- yield 后面接 Promise；
+- next 函数传参；
 
 ```js
 function fn(nums) {
@@ -367,6 +371,6 @@ const asyncFn = generatorToAsync(gen);
 asyncFn().then((res) => console.log(res)); // 3秒后输出 8
 ```
 
-#### 其他
+## 6. 其他
 
-[JavaScript 引擎是如何实现 async/await 的](https://cloud.tencent.com/developer/article/1965452)
+- [JavaScript 引擎是如何实现 async/await 的](https://cloud.tencent.com/developer/article/1965452)

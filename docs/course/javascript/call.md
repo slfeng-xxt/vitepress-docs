@@ -1,12 +1,16 @@
-### 背景
+# 改变this指向
+
+call、apply、bind
+
+## 背景
 
 ```txt
 JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。
 ```
 
-#### 一、作用
+## 一、作用
 
-**call、apply、bind 作用是改变函数执行时的上下文，简而言之就是改变函数运行时的 this 指向**
+- **call、apply、bind 作用是改变函数执行时的上下文，简而言之就是改变函数运行时的 this 指向**
 
 举例：
 
@@ -40,9 +44,9 @@ const fb = f.say.bind(pear);
 fb(); //My color is green
 ```
 
-#### 二、区别
+## 二、区别
 
-##### apply、call：
+### apply、call：
 
 - apply、call 作用完全一样，只是接受参数的方式不太一样。
 - 改变 this 指向后原函数会立即执行，且此方法只是临时改变 this 指向一次
@@ -54,7 +58,7 @@ func.call(this, arg1, arg2);
 func.apply(this, [arg1, arg2]);
 ```
 
-##### bind
+### bind
 
 - bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind()方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。
 - 改变 this 指向后不会立即执行【稍后调用】，而是返回一个永久改变 this 指向的函数
@@ -94,9 +98,9 @@ apply、call、bind 三者的区别在于：
 三者都可以传参，但是 apply 是数组，而 call 是参数列表，且 apply 和 call 是一次性传入参数，而 bind 可以分为多次传入
 bind 是返回绑定 this 之后的函数，apply、call 则是立即执行
 
-#### 三、实现
+## 三、实现
 
-##### call
+### 3.1 call
 
 1. 将函数设为对象的属性；
 2. 执行该函数；
@@ -116,7 +120,7 @@ Function.prototype.call2Mine = function (context, ...args) {
 };
 ```
 
-##### apply
+### 3.2 apply
 
 ```js
 Function.prototype.apply2Mine = function (context, args) {
@@ -132,7 +136,7 @@ Function.prototype.apply2Mine = function (context, args) {
 };
 ```
 
-##### bind
+### 3.3 bind
 
 ```js
 Function.prototype.bind2 = function (context) {
@@ -161,9 +165,13 @@ Function.prototype.bind2 = function (context) {
 };
 ```
 
-#### 四、应用场景
+## 四、应用场景
+
+### 4.1 参考链接
 
 [apply、call、bind 的使用场景](https://blog.csdn.net/liuqinrui520/article/details/136731748)
+
+### 4.2 应用总结
 
 判断对象类型
 
@@ -264,4 +272,6 @@ var foo = {
 };
 ```
 
-[Object.prototype.toString.call()](https://zhuanlan.zhihu.com/p/118793721)
+## 五、拓展
+
+- [Object.prototype.toString.call()](https://zhuanlan.zhihu.com/p/118793721)

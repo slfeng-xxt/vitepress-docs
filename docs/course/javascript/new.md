@@ -1,6 +1,11 @@
-#### 一、模拟 new,构建一个函数工厂
+# new
 
-**实现原理**
+- 目的： 创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。
+- 语法： new constructor[([arguments])]
+
+## 一、模拟 new,构建一个函数工厂
+
+- **实现原理**
 
 1. 创建实例对象：用 new Object() 的方式新建了一个对象 obj；
 2. 创建构造函数：取出第一个参数，就是我们要传入的构造函数。此外因为 shift 会修改原数组，所以 arguments 会被去除第一个参数；
@@ -51,9 +56,9 @@ console.log(personByFactory.strength); // 60
 personByFactory.sayYourName(); // I am Kevin
 ```
 
-#### 二、创建对象的多种方式
+## 二、创建对象的多种方式
 
-[JavaScript 深入之创建对象的多种方式以及优缺点](https://zhuanlan.zhihu.com/p/20262461006)
+- [JavaScript 深入之创建对象的多种方式以及优缺点](https://zhuanlan.zhihu.com/p/20262461006)
 2.1 工厂模式(所有实例指向同一个原型)
 
 ```js
@@ -144,9 +149,9 @@ person1.getName();
 person2.getName();
 ```
 
-#### 三、继承的多种方式
+## 三、继承的多种方式
 
-[Javascript 6 大继承 最优是寄生组合继承](https://juejin.cn/post/7017335994961625102)
+- [Javascript 6 大继承 最优是寄生组合继承](https://juejin.cn/post/7017335994961625102)
 
 3.1 原型链继承(属性被所有实例共享)
 
@@ -170,7 +175,7 @@ console.log(child1.getName()); // xianzao
 
 转换结构图
 
-```
+```txt
     Person    ---------    Person.prototype  (添加 .getName()方法)
       |                    /
       |                   / .__proto__
@@ -294,7 +299,7 @@ console.log(person2.friends); // ["daisy", "kelly", "taylor"]
 
 结构转换
 
-```
+```txt
    Fn    ------------>    Fn.prototype = obj  <--------  obj
    |                        |
    |                        | .__proto__
