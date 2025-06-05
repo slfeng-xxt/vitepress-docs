@@ -6,7 +6,7 @@ export default {
       ['link', { rel: 'icon', href: '/vitepress-docs/favicon.ico' }], // 添加图标
     ],
     themeConfig: {
-        siteTitle: "开博前端项目汇总",
+        siteTitle: "开博📝",
         logo: "/logo.png",
         nav: [
           { text: "博客", link: "/articles/组件库环境搭建" }, // 内链
@@ -63,7 +63,7 @@ export default {
                 link: "/projects/crm系统迁移",
               },
               {
-                text: "雨燕2.0监控平台",
+                text: "监控平台",
                 link: "/projects/监控平台",
               },
               {
@@ -71,15 +71,15 @@ export default {
                 link: "/projects/数据资产",
               },
               {
-                text: "云能管理系统",
+                text: "BMS系统",
                 link: "/projects/云能管理系统",
               },
               {
-                text: "清陶H5",
+                text: "H5",
                 link: "/projects/清陶H5",
               },
               {
-                text: "瑞易保小程序",
+                text: "小程序",
                 link: "/projects/瑞易保小程序",
               },
             ],
@@ -96,20 +96,20 @@ export default {
               { text: "pc组件", link: "/componentlib/pc组件" },
             ],
           },
+          // {
+          //   text: "开发中遇到的问题",
+          //   collapsible: true,
+          //   collapsed:true,
+          //   items: [
+          //     { text: "pc", link: "/issue/pc" },
+          //     { text: "h5", link: "/issue/h5" }, {
+          //       text: "小程序",
+          //       link: "/issue/小程序",
+          //     },
+          //   ],
+          // },
           {
-            text: "开发中遇到的问题",
-            collapsible: true,
-            collapsed:true,
-            items: [
-              { text: "pc", link: "/issue/pc" },
-              { text: "h5", link: "/issue/h5" }, {
-                text: "小程序",
-                link: "/issue/小程序",
-              },
-            ],
-          },
-          {
-            text: "前端教程",
+            text: "前端笔记",
             collapsible: true,
             collapsed:true,
             items: [
@@ -145,34 +145,122 @@ export default {
                   { text: "vue2", link: "/course/vue/vue2" },
                   { text: "vue3", link: "/course/vue/vue3" },
                   { text: "vue状态管理", link: "/course/vue/状态管理" },
+                  { text: "vue-cli", link: "/course/vue/cli" },
+                  { text: "vue-Router", link: "/course/vue/Router" },
+                  { text: "SSR", link: "/course/vue/SSR" },
+                  { text: "vue2源码解析", link: "/course/vue/vue2源码" },
+                  { text: "vue3源码解析", link: "/course/vue/vue3源码" },
                 ]
               },
               {
                 text: "react",
-                link: "/course/react",
-              },
-              {
-                text: "状态管理库",
-                link: "/course/状态管理库",
-              },
-              {
-                text: "构建工具",
-                link: "/course/构建工具",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "react基础", link: "/course/react/react基础" },
+                  { text: "react高级用法", link: "/course/react/react高级用法" },
+                  { text: "react状态管理", link: "/course/react/react状态管理" },
+                  { text: "CRA", link: "/course/react/CRA" },
+                  { text: "react-router", link: "/course/react/react-router" },
+                  { text: "react源码解析", link: "/course/react/react源码" },
+                ]
               },
               {
                 text: "前端工程化",
-                link: "/course/前端工程化",
-              },
-              {
-                text: "前端安全",
-                link: "/course/前端安全",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "AST", link: "/course/前端工程化/AST" },
+                  { text: "工程化", link: "/course/前端工程化/工程化" },
+                  { text: "wbebpack", link: "/course/前端工程化/wbebpack" },
+                  { text: "打包工具", link: "/course/前端工程化/打包工具" },
+                  { text: "自动化", link: "/course/前端工程化/自动化" },
+                  { text: "微前端", link: "/course/前端工程化/微前端"}
+                ]
               },
               {
                 text: "前端性能优化",
-                link: "/course/前端性能优化",
-              }
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "缓存", link: "/course/前端性能优化/缓存" },
+                  { text: "vue性能优化", link: "/course/前端性能优化/vue" },
+                  { text: "react性能优化", link: "/course/前端性能优化/react" },
+                ]
+              },
+              {
+                text: "升级",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "设计模式", link: "/course/前端升级/设计模式" },
+                  { text: "数据结构", link: "/course/前端升级/数据结构" },
+                  { text: "算法", link: "/course/前端升级/算法" },
+                ]
+              },
+              {
+                text: "生态库",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "vue-router源码解析", link: "/course/前端生态库/vueRouter" },
+                  { text: "vue-cli源码解析", link: "/course/前端生态库/vueCli" },
+                ]
+              },
             ],
           },
+          {
+            text: "后端笔记",
+            collapsible: true,
+            collapsed:true,
+            items: [
+              {
+                text: "java",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "java基础", link: "/course/java/java基础" },
+                ]
+              },
+              {
+                text: "数据库",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "mysql", link: "/course/数据库/mysql" },
+                  { text: "redis", link: "/course/数据库/redis" },
+                  { text: "mongodb", link: "/course/数据库/mongodb" },
+                  { text: "oracle", link: "/course/数据库/oracle" },
+                ]
+              }
+            ]
+          },
+          {
+            text: "web3.0",
+            collapsible: true,
+            collapsed:true,
+            items: [
+              { text: "web3.0", link: "/course/web3/web3.0" },
+            ]
+          }
         ],
+        outline: 'deep',
+        outlineTitle: '目录',
+        docFooter: {
+          prev: '上一页',
+          next: '下一页'
+        },
+        search: {
+          provider: 'local',
+          options: {
+            locales: {
+              '/': {
+                placeholder: '搜索文档',
+                noResults: '没有找到结果',
+                buttonLabel: '搜索'
+              }
+            }
+          }
+        }
       }
   }

@@ -18,12 +18,12 @@ hero:
 
 features:
   - icon: ⚡️
-    title: 这是一个闪电图标
+    title: 项目
     details: zzz
   - icon: 🚀
-    title: 这是一个火箭图标
+    title: 组件
     details: ggg
   - icon: 🛠️
-    title: 这是一个修复图标
+    title: 笔记
     details: hhhh
 ---
