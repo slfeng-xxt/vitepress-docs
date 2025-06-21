@@ -82,6 +82,10 @@ export default {
                 text: "小程序",
                 link: "/projects/瑞易保小程序",
               },
+              {
+                text: "大屏",
+                link: "/projects/大屏",
+              }
             ],
           },
           {
@@ -135,6 +139,14 @@ export default {
                   { text: "es6", link: "/course/javascript/ES6" },
                   { text: "babel", link: "/course/javascript/编译器"},
                   { text: "TS", link: "/course/javascript/TS" },
+                ]
+              },
+              {
+                text: "css",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "codepen", link: "/course/css/codepen" },
                 ]
               },
               {
@@ -207,6 +219,38 @@ export default {
                   { text: "vue-cli源码解析", link: "/course/前端生态库/vueCli" },
                 ]
               },
+              {
+                text: "git",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "git", link: "/course/git/git" },
+                ]
+              },
+              {
+                text: "nginx",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "nginx", link: "/course/nginx/nginx" },
+                ]
+              },
+              {
+                text: "vite",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "vite", link: "/course/vite/vite" },
+                ]
+              },
+              {
+                text: "nodejs",
+                collapsible: true,
+                collapsed:true,
+                items: [
+                  { text: "nodejs", link: "/course/nodejs/nodejs" },
+                ]
+              }
             ],
           },
           {
