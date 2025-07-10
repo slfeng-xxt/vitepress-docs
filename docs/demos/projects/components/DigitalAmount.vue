@@ -5,7 +5,7 @@ import DigitalDigit from './DigitalDigit.vue'
 const props = defineProps({
   value: {
     type: [Number, String],
-    required: true,
+    default: 1233456365.23,
   },
   length: {
     // 总位数（含小数点和逗号）

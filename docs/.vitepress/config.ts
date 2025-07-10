@@ -89,6 +89,10 @@ export default defineConfig({
             text: "大屏",
             link: "/projects/大屏",
           },
+          {
+            text: "云能管理系统",
+            link: "/projects/云能管理系统",
+          }
         ],
       },
       {
