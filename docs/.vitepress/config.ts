@@ -14,7 +14,6 @@ export default defineConfig({
     nav: [
       { text: "博客", link: "/articles/组件库环境搭建" }, // 内链
       { text: "需求", link: "/requiredoc/" },
-      { text: "GuideTest", link: "/guide/test" },
       {
         text: "Drop Menu", // 下拉菜单
         items: [
@@ -107,18 +106,25 @@ export default defineConfig({
           { text: "pc组件", link: "/componentlib/pc组件" },
         ],
       },
-      // {
-      //   text: "开发中遇到的问题",
-      //   collapsible: true,
-      //   collapsed:true,
-      //   items: [
-      //     { text: "pc", link: "/issue/pc" },
-      //     { text: "h5", link: "/issue/h5" }, {
-      //       text: "小程序",
-      //       link: "/issue/小程序",
-      //     },
-      //   ],
-      // },
+      {
+        text: "插件",
+        collapsible: true,
+        collapsed: true,
+        items: [
+          { text: "HBuilderX", link: "/plugin/HBuilderX/HBuilderX"},
+          { text: "vite", link: "/plugin/vite/vite"},
+        ]
+      },
+      {
+        text: "碎片",
+        collapsible: true,
+        collapsed:true,
+        items: [
+          { text: "css", link: "/splinter/css/index" },
+          { text: "js", link: "/splinter/js/index" },
+          { text: "vite", link: "/splinter/vite/index" },
+        ],
+      },
       {
         text: "前端笔记",
         collapsible: true,
@@ -147,6 +153,14 @@ export default defineConfig({
               { text: "babel", link: "/course/javascript/编译器" },
               { text: "TS", link: "/course/javascript/TS" },
             ],
+          },
+          {
+            text: "TypeScript",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "TypeScript", link: "/course/typescript/typescript" },
+            ]
           },
           {
             text: "css",
@@ -183,6 +197,22 @@ export default defineConfig({
             ],
           },
           {
+            text: "Dart",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "Dart", link: "/course/dart/dart" },
+            ]
+          },
+          {
+            text: "Flutter",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "Flutter", link: "/course/flutter/flutter" },
+            ]
+          },
+          {
             text: "前端工程化",
             collapsible: true,
             collapsed: true,
@@ -193,6 +223,8 @@ export default defineConfig({
               { text: "打包工具", link: "/course/前端工程化/打包工具" },
               { text: "自动化", link: "/course/前端工程化/自动化" },
               { text: "微前端", link: "/course/前端工程化/微前端" },
+              { text: "ESlint9", link: "/course/前端工程化/ESlint" },
+              { text: "代码质量检测工具", link: "/course/前端工程化/代码质量检测工具" },
             ],
           },
           {
@@ -206,7 +238,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "升级",
+            text: "内功升级",
             collapsible: true,
             collapsed: true,
             items: [
@@ -226,6 +258,16 @@ export default defineConfig({
               },
               { text: "vue-cli源码解析", link: "/course/前端生态库/vueCli" },
             ],
+          },
+          {
+            text: "组件库开发",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "初级", link: "/course/组件库开发/初级" },
+              { text: "中级", link: "/course/组件库开发/中级" },
+              { text: "高级", link: "/course/组件库开发/高级" },
+            ]
           },
           {
             text: "git",
