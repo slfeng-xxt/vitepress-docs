@@ -27,7 +27,7 @@ vue 2.7.16 版本的目录解析说明
 
 ## 2. 类型管理
 
-Flow和TypeScript是两种不同的类型检查工具，Vue 2 使用了 Flow 来进行类型检查，而 Vue 3 则使用了 TypeScript。
+Flow 和 TypeScript 是两种不同的类型检查工具，Vue 2 使用了 Flow 来进行类型检查，而 Vue 3 则使用了 TypeScript。
 
 - Flow 是一个 JavaScript 的类型检查工具，它可以在不修改代码的情况下，对代码进行类型检查，从而发现潜在的错误。[官方文档](https://flow.org/en/docs/types/)
 - TypeScript 是一个 JavaScript 的超集，它添加了类型系统和其他一些特性，可以让开发者更方便地进行类型检查和代码提示。
@@ -70,9 +70,9 @@ const render = createRenderer(ast);
 ```js
 // 渲染函数示例
 function render() {
-  return h('div', { class: 'container' }, [
-    h('h1', 'Hello, Vue 2!'),
-    h('p', 'This is a paragraph.'),
+  return h("div", { class: "container" }, [
+    h("h1", "Hello, Vue 2!"),
+    h("p", "This is a paragraph."),
   ]);
 }
 ```
@@ -109,9 +109,9 @@ Vue 2 是一个数据驱动的框架，它的核心思想是将数据的变化�
 // 数据驱动示例
 const vm = new Vue({
   data: {
-    message: 'Hello, Vue 2!',
+    message: "Hello, Vue 2!",
   },
-  template: '<div>{{ message }}</div>',
+  template: "<div>{{ message }}</div>",
 });
 ```
 
@@ -122,20 +122,20 @@ Vue 2 的响应式系统使用 Object.defineProperty 来实现数据的响应式
 ```js
 // 响应式系统示例
 const data = {};
-Object.defineProperty(data, 'message', {
+Object.defineProperty(data, "message", {
   get() {
-    console.log('get message'); // 当获取 message 属性时，触发 get 函数
-    return 'Hello, Vue 2!';
+    console.log("get message"); // 当获取 message 属性时，触发 get 函数
+    return "Hello, Vue 2!";
   },
   set(newValue) {
-    console.log('set message', newValue); // 当设置 message 属性时，触发 set 函数
+    console.log("set message", newValue); // 当设置 message 属性时，触发 set 函数
   },
 });
 ```
 
-## 7. vue实例化
+## 7. vue 实例化
 
-### 7.1 new Vue的过程
+### 7.1 new Vue 的过程
 
 Vue 2 的实例化过程包括以下几个步骤：
 
@@ -171,7 +171,7 @@ Vue.prototype._init = function (options) {
 };
 ```
 
-### 7.2 vue实例挂载的实现
+### 7.2 vue 实例挂载的实现
 
 Vue 2 的挂载过程包括以下几个步骤：
 
@@ -195,7 +195,7 @@ function mountComponent(vm, el) {
 }
 ```
 
-### 7.3 render函数的实现过程
+### 7.3 render 函数的实现过程
 
 目的：生成虚拟 DOM
 
@@ -208,10 +208,10 @@ Vue.prototype._render = function () {
   const vnode = render.call(vm);
 
   return vnode;
-}
+};
 ```
 
-### 7.4 patch函数的实现过程
+### 7.4 patch 函数的实现过程
 
 目的： 将虚拟 DOM 转换为真实 DOM
 
@@ -272,7 +272,7 @@ function updateElm(oldVnode, vnode) {
 
 ### 7.5 数据响应式变化后的更新过程
 
-目的：当数据发生变化时，触发更新函数，从而更新视图。继续调用 updateComponent 函数，将虚拟 DOM 渲染为真实 DOM。[跳转到7.2](#72-vue实例挂载的实现)
+目的：当数据发生变化时，触发更新函数，从而更新视图。继续调用 updateComponent 函数，将虚拟 DOM 渲染为真实 DOM。[跳转到 7.2](#72-vue实例挂载的实现)
 
 ```js
 function updateComponent() {
@@ -287,12 +287,28 @@ function updateComponent() {
 }
 ```
 
-## 8. diff算法
+## 8. diff 算法
 
 Vue 2 的 diff 算法用于比较新旧虚拟 DOM，找出需要更新的节点，从而提高渲染性能。Vue 2 的 diff 算法使用双指针的方式，从两端开始比较，如果节点相同，则直接跳过，如果节点不同，则根据节点的类型进行不同的处理。
 
 具体步骤：
 
-## 9. 总结
+## 9. 思维导图
 
-Vue 2 的核心思想是将数据的变化映射到视图的变化上，它使用模板编译器将模板字符串编译为渲染函数，然后使用渲染函数生成虚拟 DOM，最后使用渲染器将虚拟 DOM 渲染为真实 DOM。Vue 2 的响应式系统使用 Object.defineProperty 来实现数据的响应式，当数据发生变化时，Vue 2 会触发相应的更新函数，从而更新视图。Vue 2 的实例化过程包括合并配置、初始化生命周期、初始化事件中心、初始化渲染、初始化 data、props、computed、watcher 等，最后调用 mounted 钩子函数。Vue 2 的挂载过程包括创建一个渲染 watcher、调用 render 函数、调用 updateComponent 函数等。
+### vue2.6.12 执行流程
+
+![vue2.6.12执行流程](./vue2.6.12执行流程.png)
+<!-- ![vue2.6.12执行流程](./vue2.6.12执行流程.png){data-zoomable} -->
+
+### vue2.6.12 附录
+
+![vue2.6.12附录](./vue2.6.12附录.png)
+<!-- ![vue2.6.12附录](./vue2.6.12附录.png){data-zoomable} -->
+
+## 10. 总结
+
+- Vue 2 的核心思想是将数据的变化映射到视图的变化上，它使用模板编译器将模板字符串编译为渲染函数，然后使用渲染函数生成虚拟 DOM，最后使用渲染器将虚拟 DOM 渲染为真实 DOM。
+- Vue 2 的实例化过程包括合并配置、初始化生命周期、初始化事件中心、初始化渲染、
+初始化 data、props、computed、watcher 等，最后调用 mounted 钩子函数。
+- Vue 2 的挂载过程包括创建一个渲染 watcher、调用 render 函数、调用 updateComponent 函数等。
+- Vue 2 的响应式系统使用 Object.defineProperty 来实现数据的响应式，当数据发生变化时，会触发相应的更新函数，从而更新视图。

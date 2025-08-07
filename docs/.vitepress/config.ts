@@ -48,7 +48,7 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: "项目汇总",
+        text: "项目汇总 🐼",
         collapsible: true,
         collapsed: true,
         items: [
@@ -126,7 +126,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "前端笔记",
+        text: "前端笔记 🔥",
         collapsible: true,
         collapsed: true,
         items: [
@@ -197,7 +197,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "Dart",
+            text: "Dart ",
             collapsible: true,
             collapsed: true,
             items: [
@@ -205,7 +205,7 @@ export default defineConfig({
             ]
           },
           {
-            text: "Flutter",
+            text: "Flutter ",
             collapsible: true,
             collapsed: true,
             items: [
@@ -234,7 +234,7 @@ export default defineConfig({
             items: [
               { text: "缓存", link: "/course/前端性能优化/缓存" },
               { text: "vue性能优化", link: "/course/前端性能优化/vue" },
-              { text: "react性能优化", link: "/course/前端性能优化/react" },
+              { text: "react性能优化 ", link: "/course/前端性能优化/react" },
             ],
           },
           {
@@ -248,7 +248,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "生态库",
+            text: "生态库 ",
             collapsible: true,
             collapsed: true,
             items: [
@@ -270,25 +270,25 @@ export default defineConfig({
             ]
           },
           {
-            text: "git",
+            text: "git ",
             collapsible: true,
             collapsed: true,
             items: [{ text: "git", link: "/course/git/git" }],
           },
           {
-            text: "nginx",
+            text: "nginx ",
             collapsible: true,
             collapsed: true,
             items: [{ text: "nginx", link: "/course/nginx/nginx" }],
           },
           {
-            text: "vite",
+            text: "vite ",
             collapsible: true,
             collapsed: true,
             items: [{ text: "vite", link: "/course/vite/vite" }],
           },
           {
-            text: "nodejs",
+            text: "nodejs ",
             collapsible: true,
             collapsed: true,
             items: [{ text: "nodejs", link: "/course/nodejs/nodejs" }],
@@ -360,5 +360,5 @@ export default defineConfig({
     config(md) { 
       md.use(vitepressDemoPlugin); 
     }, 
-  },
+  }
 });

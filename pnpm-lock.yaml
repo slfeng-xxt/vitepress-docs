@@ -4,13 +4,21 @@ specifiers:
   '@ant-design/icons-vue': ^7.0.1
   ant-design-vue: ^3.2.20
   less: ^4.3.0
+  medium-zoom: ^1.1.0
+  viewerjs: ^1.11.7
   vitepress: ^1.6.3
   vitepress-demo-plugin: ^1.4.5
+  vitepress-plugin-image-viewer: ^1.1.6
+  vue: ^3.2.37
 
 dependencies:
   '@ant-design/icons-vue': 7.0.1_vue@3.5.17
   ant-design-vue: 3.2.20_vue@3.5.17
+  medium-zoom: 1.1.0
+  viewerjs: 1.11.7
   vitepress: 1.6.3_7yofsidr534w6f2xywy62z275q
+  vitepress-plugin-image-viewer: 1.1.6
+  vue: 3.5.17
 
 devDependencies:
   less: 4.3.0
@@ -1188,6 +1196,10 @@ packages:
       unist-util-visit: 5.0.0
       vfile: 6.0.3
 
+  /medium-zoom/1.1.0:
+    resolution: {integrity: sha512-ewyDsp7k4InCUp3jRmwHBRFGyjBimKps/AJLjRSox+2q/2H4p/PNpQf+pwONWlJiOudkBXtbdmVbFjqyybfTmQ==}
+    dev: false
+
   /micromark-util-character/2.1.1:
     resolution: {integrity: sha512-wv8tdUTJ3thSFFFJKtpYKOYiGP2+v96Hvk4Tu8KpCAsTMs6yi+nVmGh1syvSCsaxz45J6Jbw+9DD6g97+NV67Q==}
     dependencies:
@@ -1472,6 +1484,10 @@ packages:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
+  /viewerjs/1.11.7:
+    resolution: {integrity: sha512-0JuVqOmL5v1jmEAlG5EBDR3XquxY8DWFQbFMprOXgaBB0F7Q/X9xWdEaQc59D8xzwkdUgXEMSSknTpriq95igg==}
+    dev: false
+
   /vite/5.4.19_less@4.3.0:
     resolution: {integrity: sha512-qO3aKv3HoQC8QKiNSTuUM1l9o/XX3+c+VTgLHbJWHZGeTPVAg2XwazI9UWzoxjIJCGCV2zU60uqMzjeLZuULqA==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -1521,6 +1537,12 @@ packages:
       vitepress: 1.6.3_7yofsidr534w6f2xywy62z275q
       vue: 3.5.17
     dev: true
+
+  /vitepress-plugin-image-viewer/1.1.6:
+    resolution: {integrity: sha512-ZfYy1s/bXju6vGVsE/5gPXT449+KaXZ6ZIPAvcmPM07VmC7Bv57bCvFar2II7C2EjexxfPQsxUh70vSBbe14kQ==}
+    dependencies:
+      viewerjs: 1.11.7
+    dev: false
 
   /vitepress/1.6.3_7yofsidr534w6f2xywy62z275q:
     resolution: {integrity: sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw==}
