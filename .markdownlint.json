@@ -2,5 +2,6 @@
   "MD033": {
     "allowed_elements": ["demo"]
   },
-  "MD013": { "line_length": 120 }
+  "MD013": { "line_length": 120 },
+  "MD046": { "style": "fenced" }
 }

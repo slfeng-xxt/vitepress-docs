@@ -159,7 +159,11 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "TypeScript", link: "/course/typescript/typescript" },
+              { text: "第一章", link: "/course/typescript/第一章.md" },
+              { text: "第二章", link: "/course/typescript/第二章.md" },
+              { text: "第三章", link: "/course/typescript/第三章.md" },
+              { text: "第四章", link: "/course/typescript/第四章.md" },
+              { text: "第五章", link: "/course/typescript/第五章.md" },
             ]
           },
           {
@@ -228,6 +232,18 @@ export default defineConfig({
             ],
           },
           {
+            text: "前端脚手架 ",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "脚手架开发流程", link: "/course/前端脚手架/00.md" },
+              { text: "构建一个脚手架", link: "/course/前端脚手架/01.md" },
+              { text: "脚手架命令注册&参数解析", link: "/course/前端脚手架/02.md" },
+              { text: "脚手架原理", link: "/course/前端脚手架/03.md" },
+              { text: "Lerna", link: "/course/前端脚手架/04.md" },
+            ]
+          },
+          {
             text: "前端性能优化",
             collapsible: true,
             collapsed: true,
@@ -270,22 +286,38 @@ export default defineConfig({
             ]
           },
           {
-            text: "git ",
+            text: "git",
             collapsible: true,
             collapsed: true,
-            items: [{ text: "git", link: "/course/git/git" }],
+            items: [
+              { text: "git", link: "/course/git/git" },
+              { text: "安装", link: "/course/git/git安装" },
+              { text: "教程", link: "/course/git/git教程" },
+            ],
           },
           {
-            text: "nginx ",
+            text: "nginx",
             collapsible: true,
             collapsed: true,
-            items: [{ text: "nginx", link: "/course/nginx/nginx" }],
+            items: [
+              { text: "web项目了解", link: "/course/nginx/web项目了解" },
+              { text: "step1", link: "/course/nginx/step1" },
+              { text: "step2", link: "/course/nginx/step2" },
+              { text: "step3", link: "/course/nginx/step3" },
+              { text: "step4", link: "/course/nginx/step4" },
+            ],
           },
           {
             text: "vite ",
             collapsible: true,
             collapsed: true,
-            items: [{ text: "vite", link: "/course/vite/vite" }],
+            items: [
+              { text: "前言概览", link: "/course/vite/vite0" },
+              { text: "什么是构建工具", link: "/course/vite/vite1" },
+              { text: "vite相对于webpack的优势", link: "/course/vite/vite2" },
+              { text: "vite脚手架", link: "/course/vite/vite3" },
+              { text: "vite配置文件", link: "/course/vite/vite4" },
+            ],
           },
           {
             text: "nodejs ",
