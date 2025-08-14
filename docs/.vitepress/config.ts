@@ -9,42 +9,33 @@ export default defineConfig({
     ["link", { rel: "icon", href: "/vitepress-docs/favicon.ico" }], // 添加图标
   ],
   themeConfig: {
-    siteTitle: "开博📝",
+    siteTitle: "笔记📝",
     logo: "/logo.png",
     nav: [
-      { text: "博客", link: "/articles/组件库环境搭建" }, // 内链
-      { text: "需求", link: "/requiredoc/" },
+      { text: "博客园", link: "https://www.cnblogs.com/slfeng" }, // 内链
+      { text: "vitepress指南", link: "https://vitejs.cn/vitepress/guide/markdown.html" },
       {
-        text: "Drop Menu", // 下拉菜单
+        text: "代码地址", // 下拉菜单
         items: [
           {
             items: [
-              { text: "Item A", link: "/item-1" },
-              { text: "Item B", link: "/item-2" },
-              { text: "Item C", link: "/item-3" },
-            ],
-          },
-          {
-            items: [
-              { text: "Item B1", link: "/item-B1" },
-              { text: "Item B2", link: "/item-B2" },
+              { text: "gitlab76", link: "http://192.168.20.76/dashboard/projects" },
+              { text: "gitlab145", link: "http://192.168.20.145/dashboard/projects" },
             ],
           },
         ],
       },
-      { text: "gitlab76", link: "http://192.168.20.76/dashboard/projects" }, // 外链
-      { text: "gitlab145", link: "http://192.168.20.145/dashboard/projects" }, // 外链
     ],
     socialLinks: [
       { icon: "github", link: "https://github.com/slfeng-xxt/vitepress-docs" },
       // { icon: 'qq', link: '...' },
       // You can also add custom icons by passing SVG as string:
-      {
-        icon: {
-          svg: '<svg role="img" viewBox="0 0 24 24" xmlns="SVG namespace"><title>Dribbble</title><path d="M12...6.38z"/></svg>',
-        },
-        link: "...",
-      },
+      // {
+      //   icon: {
+      //     svg: '<svg role="img" viewBox="0 0 24 24" xmlns="SVG namespace"><title>Dribbble</title><path d="M12...6.38z"/></svg>',
+      //   },
+      //   link: "...",
+      // },
     ],
     sidebar: [
       {
@@ -131,7 +122,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
-            text: "javascript",
+            text: "JavaScript",
             collapsible: true,
             collapsed: true,
             items: [
@@ -159,21 +150,21 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "第一章", link: "/course/typescript/第一章.md" },
-              { text: "第二章", link: "/course/typescript/第二章.md" },
-              { text: "第三章", link: "/course/typescript/第三章.md" },
-              { text: "第四章", link: "/course/typescript/第四章.md" },
-              { text: "第五章", link: "/course/typescript/第五章.md" },
+              { text: "初级-1", link: "/course/typescript/第一章.md" },
+              { text: "初级-2", link: "/course/typescript/第二章.md" },
+              { text: "初级-3", link: "/course/typescript/第三章.md" },
+              { text: "初级-4", link: "/course/typescript/第四章.md" },
+              { text: "初级-5", link: "/course/typescript/第五章.md" },
             ]
           },
           {
-            text: "css",
+            text: "CSS",
             collapsible: true,
             collapsed: true,
             items: [{ text: "codepen", link: "/course/css/codepen" }],
           },
           {
-            text: "vue",
+            text: "Vue",
             collapsible: true,
             collapsed: true,
             items: [
@@ -188,7 +179,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "react",
+            text: "React",
             collapsible: true,
             collapsed: true,
             items: [
@@ -258,7 +249,10 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "设计模式", link: "/course/前端升级/设计模式" },
+              { text: "设计模式之前言", link: "/course/前端升级/设计模式0" },
+              { text: "设计模式之创建型", link: "/course/前端升级/设计模式1" },
+              { text: "设计模式之结构型", link: "/course/前端升级/设计模式2" },
+              { text: "设计模式之行为型", link: "/course/前端升级/设计模式3" },
               { text: "数据结构", link: "/course/前端升级/数据结构" },
               { text: "算法", link: "/course/前端升级/算法" },
             ],
@@ -286,7 +280,7 @@ export default defineConfig({
             ]
           },
           {
-            text: "git",
+            text: "Git",
             collapsible: true,
             collapsed: true,
             items: [
@@ -296,11 +290,11 @@ export default defineConfig({
             ],
           },
           {
-            text: "nginx",
+            text: "Nginx",
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "web项目了解", link: "/course/nginx/web项目了解" },
+              { text: "web了解", link: "/course/nginx/web项目了解" },
               { text: "step1", link: "/course/nginx/step1" },
               { text: "step2", link: "/course/nginx/step2" },
               { text: "step3", link: "/course/nginx/step3" },
@@ -308,7 +302,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "vite ",
+            text: "Vite ",
             collapsible: true,
             collapsed: true,
             items: [
@@ -320,7 +314,7 @@ export default defineConfig({
             ],
           },
           {
-            text: "nodejs ",
+            text: "Nodejs ",
             collapsible: true,
             collapsed: true,
             items: [{ text: "nodejs", link: "/course/nodejs/nodejs" }],
@@ -333,7 +327,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
-            text: "java",
+            text: "Java",
             collapsible: true,
             collapsed: true,
             items: [{ text: "java基础", link: "/course/java/java基础" }],

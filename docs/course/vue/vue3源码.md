@@ -3,6 +3,12 @@
 - 版本： v3.2.29
 - 地址： <https://github.com/vuejs/core>
 
+:::tip
+“人与人之间的差距不是来自年龄，甚至不是来自经验，而是来自经验总结、反思和升华的能力”
+
+尽可能用自己的话把新学的知识写出来
+:::
+
 ## 1. 源码目录结构
 
 ```js
@@ -101,13 +107,21 @@ export function baseCompile(template, options) {
 
 #### 3.2.1 reactive
 
+:::tip
+reactive用于将一个引用类型数据声明为响应式数据，返回的是一个Proxy对象。(只接受引用类型数据,基本类型会原样返回并产生警告.)
+
+reactive 实现响应式就是基于ES6 Proxy 实现的。
+
+reactive默认是深层响应式，并且watch的监听是默认开启深度监听的
+:::
+
 ```js
 // src/reactive.ts
 export function reactive(raw) {
-  return createReactiveObject(raw, mutableHandlers);
+  return createReactiveObject(raw, false, mutableHandlers);
 }
 
-function createReactiveObject(target, baseHandlers) {
+function createReactiveObject(target, isReadonly, baseHandlers) {
   // 1. 先判断是不是对象
   if (!isObject(target)) {
     return target;
@@ -125,9 +139,56 @@ function createReactiveObject(target, baseHandlers) {
 }
 ```
 
-#### 3.2.2 ref
+- **只接受对象类型，否则直接返回**
 
 ```js
+const raw = {a: 1}
+const num = reactive(1);
+const obj = reactive(raw)
+console.log(num) // 1
+console.log(obj) // Proxy {a: 1}
+```
+
+- **会丢失响应式的几个操作**
+
+1.对象引用发生变化
+
+```js
+const obj = reactive({a: 1})
+obj = {a: 2} // 不会触发响应式
+```
+
+2.解构
+
+```js
+const obj = reactive({a: 1})
+const {a} = obj
+a = 2 // 不会触发响应式
+```
+
+- **shallowReactive**
+
+shallowReactive也是用于声明一个浅层的响应式对象，用于性能优化处理
+
+```js
+const obj = shallowReactive({a: 1, b: {c: 2}})
+obj.a = 2 // 触发响应式
+obj.b.c = 2 // 不会触发响应式
+```
+
+#### 3.2.2 ref
+
+:::tip
+ref接受任意类型值，返回响应式对象，通过.value访问
+
+ref默认提供深层响应式，也就是说即使我们修改嵌套的引用类型数据，vue也能够检测到并触发页面更新
+
+watch函数如果监听的是ref定义的引用类型数据，默认是不会开启深度监听的,我们需要手动开启深度监听
+:::
+
+```js
+//reactive.ts
+export const toReactive = (value) => isObject(value) ? reactive(value) : value;
 // ref.ts
 export function ref(value) {
   return createRef(value);
@@ -164,12 +225,91 @@ class RefImpl {
 }
 ```
 
-### 3.2 reactive和ref的区别
+- **shallowRef**
 
-- `reactive` 是将一个对象转换为响应式对象，而 `ref` 是将一个值转换为响应式对象。
-- `reactive` 返回的是一个 Proxy 对象，而 `ref` 返回的是一个 Ref 对象。
-- `reactive` 的值是深层次的响应式，而 `ref` 的值是浅层次的响应式。
-- `reactive` 的值可以通过 `obj.prop` 的方式访问，而 `ref` 的值需要通过 `obj.value` 的方式访问。
+```txt
+由于ref默认是深层响应式，但有时候我们为了性能考虑，也可以通过 shallowRef 来放弃深层响应性。对于浅层 ref，只有 .value 的访问会被追踪。
+
+修改属性值，虽然数据变化了，但是页面并不会更新，并且无法通过watch监听数据变化。
+```
+
+- **triggerRef**
+
+```txt
+当一个浅层ref的属性值发生改变又想触发页面更新时，可以手动调用triggerRef来实现
+```
+
+```js
+const count = shallowRef(0);
+watchEffect(() => {
+  console.log(count.value);
+})
+count.value++;
+triggerRef(count);
+```
+
+- **customRef**
+
+```txt
+customRef 是一个工厂函数，可以用来创建一个自定义的 ref，它接受一个工厂函数，该函数接收 track 和 trigger 两个参数，并返回一个带有 get 和 set 方法的对象。
+
+在 get 方法中，我们可以手动调用 track 函数来追踪依赖，在 set 方法中，我们可以手动调用 trigger 函数来触发更新。
+```
+
+```js
+const myRef = customRef((track, trigger) => {
+  let value = 0;
+  return {
+    get() {
+      track();
+      return value;
+    },
+    set(newValue) {
+      value = newValue;
+      trigger();
+    }
+  };
+})
+console.log(myRef.value); // 0
+```
+
+#### 3.2.3 readonly
+
+```js
+export function readonly(raw) {
+  return createReactiveObject(raw, true, readonlyHandlers, readonlyCollectionHandlers, readonlyMap);
+}
+```
+
+```js
+// readonly应用场景，例如：父组件传递给子组件的数据，子组件不允许修改
+const state = readonly({
+  count: 0
+})
+state.count++; // 报错
+```
+
+### 3.3 reactive和ref的区别
+
+| 特性       | ref           | reactive       |
+| ---------- | ------------- | -------------- |
+| 接受类型   | 任意类型       | 仅对象类型     |
+| 访问方式   | 通过.value访问 | 直接访问属性   |
+| 模板解包   | 自动解包(无需.value) | 无需解包       |
+| 深层响应   | 默认支持       | 默认支持       |
+| 性能优化   | shallowRef    | shallowReactive |
+| watch       | 对于引用类型，watch默认不会开启深度监听 | 默认开启深度监听 |
+| 引用替换   | 保持响应(.value=新引用) | 完全丢失响应   |
+| 解构处理   | 需保持.value引用 | 需配合toRefs   |
+| 适用场景   | 基本类型、组件模板引用、跨函数传递 | 复杂对象、状态管理、局部状态 |
+
+### 3.4 toRefs
+
+- `toRefs` 是将一个响应式对象的每个属性都转换为 `ref`，并返回一个新的对象。
+- 它可以用于将响应式对象的属性解构出来，同时保持响应式。
+- 它可以用于将响应式对象的属性传递给子组件，同时保持响应式。
+
+### 3.5 toRef
 
 ## 4. runtime-core
 

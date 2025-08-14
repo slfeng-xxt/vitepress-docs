@@ -2,7 +2,7 @@
 
 ## 一、用create-vite搭建一个vite项目
 
-```js
+```bash
 npm create vite@latest
 yarn create vite
 pnpm create vite
@@ -42,7 +42,7 @@ pnpm create vite
 ### 开箱即用(out of box),不需要做任何额外的配置就可以使用vite来帮你处理构建工作
 
 :::tip
-在默认情况下，我们使用esm去导入资源的时候，要么绝对路径，要么相对路径**
+在默认情况下，我们使用esm去导入资源的时候，要么绝对路径，要么相对路径
 :::
 
 * 使用esm的import导入模块的时候，经常会引入node_modules中的模块
@@ -51,16 +51,17 @@ pnpm create vite
 
 安装vite
 
-```js
+```bash
 yarn add vite
 ```
 
-// 配置启动脚本
+配置启动脚本 package.json
 
-```js
-// package.json
-"script": {
-    "dev": "vite"
+```json
+{
+    "script": {
+        "dev": "vite"
+    }
 }
 ```
 
@@ -96,19 +97,20 @@ import _ from '/node_modules/.vite/deps/lodash.js?v=ebe557916'
 
 有的包是common.js规范导出（module.exports）,引入的包无法约束，所有就有了**依赖预构建**
 
-*依赖预构建的过程如下说明：*
+##### *依赖预构建的过程如下说明：*
 
 1. 首先vite会找到对应的依赖，
-2. 然后调用esbuild将其他规范的代码转换为esm规范的代码，
+2. 然后调用esbuild将其他规范的代码转换为ESM规范的代码，
 3. 然后放到当前目录下的node_modules/.vite/deps，同时对esm规范对各个模块进行统一集成
 
-*依赖预构建解决了3个问题*
+##### *依赖预构建解决了3个问题*
 
 1. 不同的第三方包会有不同的导出格式（也就是vite没办法约束人家的地方）
 2. 对路径的处理，路径补全可以直接到node_modules/.vite/deps下补全
-3. 网络多包传输的性能问题**（四、vite新建项目初体验中无vite构建的项目遇到的问题）**
+3. 网络多包传输的性能问题
 
-*总结：*
+##### *总结：*
+
 有了依赖预构建后，无论多少额外的export和Import,vite都会尽可能的将他们集成最后只生成一个或几个模块，减少网络传输中包的数量
 
 ### 5.2 生产环境
