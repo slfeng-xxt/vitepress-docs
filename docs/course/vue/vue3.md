@@ -1,5 +1,11 @@
 # vue3 新特性
 
+:::warning
+🔎观察小孩学走路感悟：1.只做刚需之事 2.没有期待之心
+
+总结：少即是多，慢即是快，无欲则刚
+:::
+
 ## 1. Composition API
 
 ### 1.1 什么是 Composition API
@@ -335,7 +341,9 @@ v-model 在 Vue2 和 Vue3 中的区别
 - Vue3
 
   - 语法：v-model
-  - 原理：在 Vue3 中，v-model 的实现方式发生了变化。它不再是一个指令，而是一个**语法糖**，它会在内部自动创建一个名为 modelValue 的 prop 和一个名为 update:modelValue 的 event。当组件的 modelValue prop 发生变化时，Vue 会自动更新绑定的数据，反之亦然。
+  - 原理：在 Vue3 中，v-model 的实现方式发生了变化。它不再是一个指令，而是一个**语法糖**，
+  它会在内部自动创建一个名为 modelValue 的 prop 和一个名为 update:modelValue 的 event。当组件的 modelValue prop 发生变化时，Vue 会自动更新绑定的数据，反之亦然。
+
   - 使用场景：v-model 可以用于任何组件，而不仅仅是表单元素。它可以在任何组件上创建双向绑定，只要该组件定义了一个名为 modelValue 的 prop 和一个名为 update:modelValue 的 event。
   - 🌰
     举例1：**v-model 的基本用法**
@@ -481,7 +489,9 @@ v-model 在 Vue2 和 Vue3 中的区别
 理解：
 
 ```text
-在 renderer.ts 中，mountElement方法里创建新节点使用的是document.createElement，属性设置使用setAttribute，节点添加使用append。自定义渲染器就意味着这部分固定的 DOM 环境API需要抽离出来作为 DOM 的固定接口。
+在 renderer.ts 中，mountElement方法里创建新节点使用的是document.createElement，属性设置使用setAttribute，节点添加使用append。
+自定义渲染器就意味着这部分固定的 DOM 环境API需要抽离出来作为 DOM 的固定接口。
+
 将抽离出来的地方使用更为通用的渲染方法，当需要渲染成 DOM 时就使用 DOM 的接口，那当需要渲染成其他平台的.例如 canvas，也可以传入 canvas 相关的 API 接口。
 ```
 
@@ -490,3 +500,18 @@ v-model 在 Vue2 和 Vue3 中的区别
 - [构建高级自定义渲染器](https://segmentfault.com/a/1190000044963666#item-3)
 - [vue3 的跨平台自定义渲染器](https://www.cnblogs.com/kdcg/p/13844808.html)
 - [Vue3高阶API，自定义渲染器createRenderer](https://www.bmabk.com/index.php/post/196857.html)
+
+## 9. vue3.6 新特性
+
+### 9.1 Vapor Mode(实验性编译策略)
+
+替代传统的的虚拟DOM渲染方式，通过静态分析和动态优化，Vapor模式可以生成更简介的运行时代码，减少不必要的DOM操作，提高性能。
+
+核心特点：
+
+- 精准DOM操作： 模版直接编译为高效的DOM操作，无需虚拟DOM和diff
+- 更小的打包体积： 通过 `createVaporApp`创建的应用基线大小不到10kb,进一步优化加载时间
+
+### 9.2 Alien Signals 1.0 集成
+
+通过对响应式系统的优化，对内存使用和性能提升

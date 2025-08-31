@@ -9,7 +9,7 @@ export default defineConfig({
     ["link", { rel: "icon", href: "/vitepress-docs/favicon.ico" }], // 添加图标
   ],
   themeConfig: {
-    siteTitle: "笔记📝",
+    siteTitle: "七年就是一辈子",
     logo: "/logo.png",
     nav: [
       { text: "博客园", link: "https://www.cnblogs.com/slfeng" }, // 内链
@@ -44,19 +44,23 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
-            text: "南信大",
-            link: "/projects/南信大",
+            text: "大屏",
+            link: "/projects/大屏",
           },
           {
-            text: "开博框架",
-            link: "/projects/开博框架",
+            text: "BMS系统",
+            link: "/projects/云能管理系统",
           },
           {
-            text: "crm系统迁移",
-            link: "/projects/crm系统迁移",
+            text: "小程序",
+            link: "/projects/瑞易保小程序",
           },
           {
-            text: "监控平台",
+            text: "H5",
+            link: "/projects/清陶H5",
+          },
+          {
+            text: "监控平台（待补充项目代码）",
             link: "/projects/监控平台",
           },
           {
@@ -64,56 +68,17 @@ export default defineConfig({
             link: "/projects/数据资产",
           },
           {
-            text: "BMS系统",
-            link: "/projects/云能管理系统",
+            text: "开博框架（待补充项目代码）",
+            link: "/projects/开博框架",
           },
           {
-            text: "H5",
-            link: "/projects/清陶H5",
+            text: "crm系统迁移",
+            link: "/projects/crm系统迁移",
           },
           {
-            text: "小程序",
-            link: "/projects/瑞易保小程序",
+            text: "南信大",
+            link: "/projects/南信大",
           },
-          {
-            text: "大屏",
-            link: "/projects/大屏",
-          },
-          {
-            text: "云能管理系统",
-            link: "/projects/云能管理系统",
-          }
-        ],
-      },
-      {
-        text: "组件库",
-        collapsible: true,
-        collapsed: true,
-        items: [
-          {
-            text: "小程序组件库",
-            link: "/componentlib/小程序组件库",
-          },
-          { text: "pc组件", link: "/componentlib/pc组件" },
-        ],
-      },
-      {
-        text: "插件",
-        collapsible: true,
-        collapsed: true,
-        items: [
-          { text: "HBuilderX", link: "/plugin/HBuilderX/HBuilderX"},
-          { text: "vite", link: "/plugin/vite/vite"},
-        ]
-      },
-      {
-        text: "碎片",
-        collapsible: true,
-        collapsed:true,
-        items: [
-          { text: "css", link: "/splinter/css/index" },
-          { text: "js", link: "/splinter/js/index" },
-          { text: "vite", link: "/splinter/vite/index" },
         ],
       },
       {
@@ -287,6 +252,7 @@ export default defineConfig({
               { text: "git", link: "/course/git/git" },
               { text: "安装", link: "/course/git/git安装" },
               { text: "教程", link: "/course/git/git教程" },
+              { text: "gitignore", link: "/course/git/gitignore" },
             ],
           },
           {
@@ -362,6 +328,49 @@ export default defineConfig({
           },
         ],
       },
+      // {
+      //   text: "PLC",
+      //   collapsible: true,
+      //   collapsed: true,
+      //   items: [
+      //     {
+      //       text: "PLC",
+      //       link: "/course/PLC/PLC",
+      //     },
+      //   ]
+      // },
+      {
+        text: "组件库",
+        collapsible: true,
+        collapsed: true,
+        items: [
+          {
+            text: "小程序组件库",
+            link: "/componentlib/小程序组件库",
+          },
+          { text: "pc组件", link: "/componentlib/pc组件" },
+        ],
+      },
+      {
+        text: "插件",
+        collapsible: true,
+        collapsed: true,
+        items: [
+          { text: "HBuilderX", link: "/plugin/HBuilderX/HBuilderX"},
+          { text: "vite", link: "/plugin/vite/vite"},
+        ]
+      },
+      {
+        text: "碎片",
+        collapsible: true,
+        collapsed:true,
+        items: [
+          { text: "css", link: "/splinter/css/index" },
+          { text: "js", link: "/splinter/js/index" },
+          { text: "vite", link: "/splinter/vite/index" },
+        ],
+      },
+      
     ],
     outline: "deep",
     outlineTitle: "目录",
