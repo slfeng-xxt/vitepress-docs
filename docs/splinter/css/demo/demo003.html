@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字适应纹理</title>
+    <style>
+        .stage {
+            position: relative;
+            width: 600px;
+            height: 300px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        /* 背景一层：作为底图，灰度化提升对比 */
+        .stage .bg {
+            position: absolute;
+            inset: 0;
+            background: url('/vitepress-docs/splinter/css/demo/wall.png') center/cover no-repeat;
+            /* filter: grayscale(1) contrast(1.3) brightness(1.05); */
+        }
+
+        /* 文字用同一张纹理做填充，并用混合模式增强层次 */
+        .texture-text {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            font: bold 200px/1 Arial, sans-serif;
+
+            /* 关键：纹理填充到文字内部 */
+            background: url('/vitepress-docs/splinter/css/demo/wall.png') center/cover no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            /* 让纹理填充的文字与底图产生乘色/叠加效果 */
+            mix-blend-mode: multiply;
+            /* 可改为 overlay/soft-light/overlay */
+            filter: contrast(1.15) brightness(0.95);
+            /* 可选描边类似 SVG stroke */
+            text-shadow: 0 0 0 #d32626, 0 0 0.5px #ec5252;
+        }
+
+        .css {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100px;
+            font-size: 80px;
+            font-weight: bolder;
+            background-image: url('/vitepress-docs/splinter/css/demo/wall.png');
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- css滤镜实现 -->
+    <div class="stage">
+        <div class="bg"></div>
+        <h1 class="texture-text">CSS</h1>
+    </div>
+    <div class="css">文字适应纹理</div>
+    <!-- svg滤镜实现 -->
+    <svg viewBox="0 0 600 300">
+        <defs>
+            <filter id="texture">
+                <feImage href="/vitepress-docs/splinter/css/demo/wall.png" x="0" y="0" width="100%" height="100%"
+                    preserveAspectRatio="none" result="ORIGIN_IMAGE">
+                </feImage>
+                <!-- 滤镜：黑白图片 -->
+                <feColorMatrix in="ORIGIN_IMAGE" type="saturate" values="0" result="TRAY_IMAGE"></feColorMatrix>
+                <!-- 置换滤镜 -->
+                <feDisplacementMap in="SourceGraphic" in2="TRAY_IMAGE" scale="15" xChannelSelector="R"
+                    yChannelSelector="R" result="TEXTURED_TEXT"></feDisplacementMap>
+                <!-- 颜色滤镜 -->
+                <feColorMatrix in="TEXTURED_TEXT" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .8 0"
+                    result="OPACITY_TEXT"></feColorMatrix>
+                <!-- 图片再来一次 -->
+                <feImage href="/vitepress-docs/splinter/css/demo/wall.png" x="0" y="0" width="100%" height="100%"
+                    preserveAspectRatio="none" result="BG">
+                </feImage>
+                <!-- 混合图片和文字 -->
+                <feBlend in="BG" in2="OPACITY_TEXT" mode="multiply"></feBlend>
+            </filter>
+        </defs>
+
+        <text x="50%" y="50%" font-size="15em" fill="blue" font-weight="bold" text-anchor="middle"
+            alignment-baseline="middle" filter="url(#texture)">SVG</text>
+    </svg>
+    <!-- canvas实现 -->
+    <canvas id="c" width="600" height="300"></canvas>
+    <script type="module">
+        ; (() => {
+            const W = 600, H = 300;
+            const cvs = document.getElementById('c');
+            const ctx = cvs.getContext('2d');
+
+            // 可选：处理高清屏
+            const dpr = window.devicePixelRatio || 1;
+            if (dpr !== 1) {
+                cvs.width = W * dpr;
+                cvs.height = H * dpr;
+                cvs.style.width = W + 'px';
+                cvs.style.height = H + 'px';
+                ctx.scale(dpr, dpr);
+            }
+
+            const bg = new Image();
+            const tex = new Image();
+            // 路径：同源本地图；若部署到 VitePress，绝对路径需带 base 前缀 /vitepress-docs/
+            bg.src = '/vitepress-docs/splinter/css/demo/wall.png'; // 背景
+            tex.src = '/vitepress-docs/splinter/css/demo/wall.png'; // 纹理（可与背景相同，或用另一张）
+
+            let ready = 0;
+            const done = () => {
+                // 1) 清空
+                ctx.clearRect(0, 0, W, H);
+
+                // 2) 先画“纹理层”
+                ctx.drawImage(tex, 0, 0, W, H);
+
+                // 3) 用文字把纹理裁成“纹理字”
+                ctx.globalCompositeOperation = 'destination-in';
+                ctx.font = 'bold 120px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                const text = 'CANVAS';
+
+                // 先描边增强可读性（描边不能在 destination-in 下画，要在遮罩前或另层）
+                ctx.save();
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.lineWidth = 5;
+                ctx.fillStyle = 'rgba(98, 213, 76, .85)';
+                ctx.fillText(text, W / 2, H / 2);
+                ctx.restore();
+
+                // 真正作为遮罩的填充文字
+                ctx.fillStyle = '#fff';
+                ctx.fillText(text, W / 2, H / 2);
+
+                // 4) 把背景画到“纹理字”的下面
+                ctx.globalCompositeOperation = 'destination-over';
+                ctx.drawImage(bg, 0, 0, W, H);
+
+                // 5) 复位
+                ctx.globalCompositeOperation = 'source-over';
+            };
+
+            const tryDone = () => { if (++ready === 2) done(); };
+
+            bg.onload = tryDone;
+            tex.onload = tryDone;
+
+            // 若用外链图，需 CORS
+            // tex.crossOrigin = 'anonymous';
+            // bg.crossOrigin = 'anonymous';
+
+        })()
+    </script>
+</body>
+
+</html>

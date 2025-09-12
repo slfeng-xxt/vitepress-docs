@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多行文本溢出</title>
+    <style>
+        h2 {
+            margin-top: 20px;
+            background-color: green;
+        }
+
+        .box,
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px dashed blue;
+        }
+
+        .text-box {
+            height: 100px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+        }
+
+        .box-content {
+            line-height: 25px;
+        }
+
+        .text-container {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .text-container::before {
+            content: '';
+            display: block;
+            height: 80px;
+            background-color: red;
+        }
+
+        .more {
+            float: right;
+        }
+
+        .content {
+            margin-top: -80px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2><strong>方式一:</strong>`dsiplay: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;`</h2>
+    <div class="box">
+        <div class="text-box">
+            <div class="box-content">Many people read on digital devices like cell phones and e-books. The fast pace of
+                life
+                leaves many people no time to sit and read a whole book, so making use of fragmented time to read is
+                sure tobe a trend. Fragmented reading has its advantages. People can get hold of large amounts of
+                information, knowledge, and entertainment in a short time. Digital reading is faster and more
+                interactive than traditional deep reading.</div>
+        </div>
+    </div>
+    <h2><strong>方式二:</strong>
+        .text-container::before用来做占位（n-1行的高度）；`.more`使用浮动效果，使其脱离文档流，让`content`内容环绕；`.content`使用负margin，抵消占位高度,从而实现多行文本溢出的效果
+    </h2>
+    <div class="container">
+        <div class="text-container">
+            <div class="more">...</div>
+            <div class="content">Many people read on digital devices like cell phones and e-books. The fast pace of life
+                leaves many people no time to sit and read a whole book, so making use of fragmented time to read is
+                sure tobe a trend. Fragmented reading has its advantages People can get hold of large amounts of
+                information, knowledge, and entertainment in a short time. Digital reading is faster and more
+                interactive than traditional deep reading.</div>
+        </div>
+    </div>
+</body>
+
+</html>

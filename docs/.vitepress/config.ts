@@ -13,7 +13,16 @@ export default defineConfig({
     logo: "/logo.png",
     nav: [
       { text: "博客园", link: "https://www.cnblogs.com/slfeng" }, // 内链
-      { text: "vitepress指南", link: "https://vitejs.cn/vitepress/guide/markdown.html" },
+      { text: "vitepress",
+        items: [
+          {
+            items: [
+              { text: "vitepress指南", link: "https://vitejs.cn/vitepress/guide/markdown.html" },
+              { text: "Vitepress Demo Plugin", link: "https://vitepress-demo.fe-dev.cn/" },
+            ]
+          }
+        ]
+      },
       {
         text: "代码地址", // 下拉菜单
         items: [
@@ -43,6 +52,10 @@ export default defineConfig({
         collapsible: true,
         collapsed: true,
         items: [
+          {
+            text: "项目映射",
+            link: "/projects/项目映射",
+          },
           {
             text: "大屏",
             link: "/projects/大屏",
@@ -394,6 +407,6 @@ export default defineConfig({
   markdown: { 
     config(md) { 
       md.use(vitepressDemoPlugin); 
-    }, 
+    }
   }
 });
