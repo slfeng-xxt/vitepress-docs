@@ -1,7 +1,7 @@
 # vue3 新特性
 
 :::warning
-🔎观察小孩学走路感悟：1.只做刚需之事 2.没有期待之心
+🔎 观察小孩学走路感悟：1.只做刚需之事 2.没有期待之心
 
 总结：少即是多，慢即是快，无欲则刚
 :::
@@ -121,7 +121,7 @@ vue2 和 vue3 的生命周期钩子函数对比表格
 
 ## 3. 异步组件 defineAsyncComponent
 
-说明：异步组件是 Vue3.0 新增的一个功能，它可以让我们在需要的时候才加载组件，从而提高应用的性能。异步组件的使用非常简单，只需要使用 defineAsyncComponent 函数来定义一个异步组件即可。
+说明：异步组件是 Vue3.0 新增的一个功能，它可以让我们在需要的时候才加载组件，从而提高应用的性能。异步组件的使用非常简单，只需要使用 [defineAsyncComponent](https://cn.vuejs.org/api/general.html#defineasynccomponent) 函数来定义一个异步组件即可。
 
 - 从服务器加载相关组件
 
@@ -144,6 +144,13 @@ import { defineAsyncComponent } from "vue";
 const AsyncComponent = defineAsyncComponent(() =>
   import("./components/AsyncComponent.vue")
 );
+const AsyncConfigComponent = defineAsyncComponent({
+  loader: () => import("./components/AsyncComponent.vue",
+  loadingComponent: LoadingComponent,
+  errorComponent: ErrorComponent,
+  delay: 200,
+  timeout: 3000,
+})
 ```
 
 与 Suspense 组件一起使用
@@ -171,7 +178,7 @@ const AsyncComponent = defineAsyncComponent(() =>
 
 ## 4. Teleport
 
-说明：Teleport 是 Vue 3.0 中新增的一个组件，它可以将子组件渲染到指定的 DOM 节点中，而不是当前组件的 DOM 节点中。这在一些场景下非常有用，比如模态框、通知等。
+说明：[Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 是 Vue 3.0 中新增的一个组件，它可以将子组件渲染到指定的 DOM 节点中，而不是当前组件的 DOM 节点中。这在一些场景下非常有用，比如模态框、通知等。
 
 ```vue
 <template>
@@ -342,19 +349,19 @@ v-model 在 Vue2 和 Vue3 中的区别
 
   - 语法：v-model
   - 原理：在 Vue3 中，v-model 的实现方式发生了变化。它不再是一个指令，而是一个**语法糖**，
-  它会在内部自动创建一个名为 modelValue 的 prop 和一个名为 update:modelValue 的 event。当组件的 modelValue prop 发生变化时，Vue 会自动更新绑定的数据，反之亦然。
+    它会在内部自动创建一个名为 modelValue 的 prop 和一个名为 update:modelValue 的 event。当组件的 modelValue prop 发生变化时，Vue 会自动更新绑定的数据，反之亦然。
 
   - 使用场景：v-model 可以用于任何组件，而不仅仅是表单元素。它可以在任何组件上创建双向绑定，只要该组件定义了一个名为 modelValue 的 prop 和一个名为 update:modelValue 的 event。
   - 🌰
-    举例1：**v-model 的基本用法**
+    举例 1：**v-model 的基本用法**
 
     父组件
 
     ```vue
     <template>
-       <my-input v-model="msg"></my-input>
-        <!-- 👆🏻等同于👇🏻 -->
-        <my-input :modelValue="msg" @update:modelValue="msg = $event"></my-input>
+      <my-input v-model="msg"></my-input>
+      <!-- 👆🏻等同于👇🏻 -->
+      <my-input :modelValue="msg" @update:modelValue="msg = $event"></my-input>
     </template>
 
     <script setup>
@@ -368,33 +375,33 @@ v-model 在 Vue2 和 Vue3 中的区别
 
     ```vue
     <template>
-        <div>
-            <input
-            type="text"
-            :value="modelValue"
-            @input="emit('update:modelValue', $event.target.value)"  // 事件名改为 update:modelValue
-            />
-        </div>
+      <div>
+        <input type="text" :value="modelValue" @input="emit('update:modelValue',
+        $event.target.value)" // 事件名改为 update:modelValue />
+      </div>
     </template>
 
     <script setup>
     import { defineProps, defineEmits } from "vue";
 
     const props = defineProps({
-        modelValue: String,
+      modelValue: String,
     });
 
     const emit = defineEmits(["update:modelValue"]);
     </script>
     ```
 
-    举例2：**v-model 的多个属性**
+    举例 2：**v-model 的多个属性**
 
     父组件
 
     ```vue
     <template>
-      <child-component v-model:title="title" v-model:content="content"></child-component>
+      <child-component
+        v-model:title="title"
+        v-model:content="content"
+      ></child-component>
     </template>
 
     <script setup>
@@ -433,7 +440,7 @@ v-model 在 Vue2 和 Vue3 中的区别
     </script>
     ```
 
-    举例3：**v-model 的自定义修饰符**
+    举例 3：**v-model 的自定义修饰符**
     父组件
 
     ```vue
@@ -452,10 +459,7 @@ v-model 在 Vue2 和 Vue3 中的区别
 
     ```vue
     <template>
-      <input
-        :value="modelValue"
-        @input="emitValue($event.target.value)"
-      />
+      <input :value="modelValue" @input="emitValue($event.target.value)" />
     </template>
     <script setup>
     import { defineProps, defineEmits } from "vue";
@@ -475,11 +479,11 @@ v-model 在 Vue2 和 Vue3 中的区别
         value = value.charAt(0).toUpperCase() + value.slice(1);
       }
       emit("update:modelValue", value);
-    }
+    };
     </script>
     ```
 
-    - 语法：.sync（在vue3中用 v-model:propName 的方式来替代 vue2中的 .sync 修饰符）
+    - 语法：.sync（在 vue3 中用 v-model:propName 的方式来替代 vue2 中的 .sync 修饰符）
 
 ## 8. 自定义渲染器 createRenderer
 
@@ -499,18 +503,18 @@ v-model 在 Vue2 和 Vue3 中的区别
 
 - [构建高级自定义渲染器](https://segmentfault.com/a/1190000044963666#item-3)
 - [vue3 的跨平台自定义渲染器](https://www.cnblogs.com/kdcg/p/13844808.html)
-- [Vue3高阶API，自定义渲染器createRenderer](https://www.bmabk.com/index.php/post/196857.html)
+- [Vue3 高阶 API，自定义渲染器 createRenderer](https://www.bmabk.com/index.php/post/196857.html)
 
 ## 9. vue3.6 新特性
 
 ### 9.1 Vapor Mode(实验性编译策略)
 
-替代传统的的虚拟DOM渲染方式，通过静态分析和动态优化，Vapor模式可以生成更简介的运行时代码，减少不必要的DOM操作，提高性能。
+替代传统的的虚拟 DOM 渲染方式，通过静态分析和动态优化，Vapor 模式可以生成更简介的运行时代码，减少不必要的 DOM 操作，提高性能。
 
 核心特点：
 
-- 精准DOM操作： 模版直接编译为高效的DOM操作，无需虚拟DOM和diff
-- 更小的打包体积： 通过 `createVaporApp`创建的应用基线大小不到10kb,进一步优化加载时间
+- 精准 DOM 操作： 模版直接编译为高效的 DOM 操作，无需虚拟 DOM 和 diff
+- 更小的打包体积： 通过 `createVaporApp`创建的应用基线大小不到 10kb,进一步优化加载时间
 
 ### 9.2 Alien Signals 1.0 集成
 

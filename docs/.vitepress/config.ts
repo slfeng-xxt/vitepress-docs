@@ -92,6 +92,10 @@ export default defineConfig({
             text: "南信大",
             link: "/projects/南信大",
           },
+          {
+            text: "JavaScript Table",
+            link: "/projects/JavaScriptTable",
+          }
         ],
       },
       {
@@ -120,7 +124,6 @@ export default defineConfig({
               { text: "函数式编程", link: "/course/javascript/函数式编程" },
               { text: "es6", link: "/course/javascript/ES6" },
               { text: "babel", link: "/course/javascript/编译器" },
-              { text: "TS", link: "/course/javascript/TS" },
             ],
           },
           {
@@ -133,6 +136,7 @@ export default defineConfig({
               { text: "初级-3", link: "/course/typescript/第三章.md" },
               { text: "初级-4", link: "/course/typescript/第四章.md" },
               { text: "初级-5", link: "/course/typescript/第五章.md" },
+              { text: "练习", link: "/course/javascript/TS" },
             ]
           },
           {
@@ -148,6 +152,8 @@ export default defineConfig({
             items: [
               { text: "vue2", link: "/course/vue/vue2" },
               { text: "vue3", link: "/course/vue/vue3" },
+              { text: "vue3强化", link: "/course/vue/vue3强化" },
+              { text: "vue3响应式丢失", link: "/course/vue/vue3响应式丢失" },
               { text: "vue状态管理", link: "/course/vue/状态管理" },
               { text: "vue-cli", link: "/course/vue/cli" },
               { text: "vue-Router", link: "/course/vue/Router" },
@@ -168,6 +174,14 @@ export default defineConfig({
               { text: "react-router", link: "/course/react/react-router" },
               { text: "react源码解析", link: "/course/react/react源码" },
             ],
+          },
+          {
+            text: "Angular ",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "Angular", link: "/course/angular/angular" },
+            ]
           },
           {
             text: "Dart ",
