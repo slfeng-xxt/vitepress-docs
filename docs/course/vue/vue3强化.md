@@ -422,7 +422,13 @@ export default {
 - 如果需要监听具体的响应式数据，可以使用 `watch` 函数。
 - 如果需要监听所有响应式数据的变化，可以使用 `watchEffect` 函数。
 
-## 16. setup
+## 16. setup(选项式API or 组合式API)
+
+:::tip
+vite-plugin-inspect 插件的使用<https://vrite.cn/vite/plugin/outside/vite-plugin-inspect>
+
+检查Vite插件的中间状态。用于调试和编写插件。
+:::
 
 ### setup 函数
 
@@ -435,6 +441,13 @@ created之前做了哪些操作？数据响应化，而vue3中数据响应式是
 - `setup` 函数是 Vue 3 中新增的一个函数，它是在组件创建之前执行的。
 - `setup` 函数接收两个参数，第一个参数是 `props`，第二个参数是 `context`。
 - `props` 是组件的属性，`context` 是一个对象，包含了组件的上下文信息。
+
+### [setup](https://cn.vuejs.org/api/sfc-script-setup.html#basic-syntax) 语法糖
+
+- defineProps
+- defineEmits
+- defineExpose
+- withDefaults
 
 ## 17. 生命周期
 
@@ -463,3 +476,9 @@ vue2中的生命周期和vue3中生命周期对比表格
 
 - `renderTracked`:在一个响应式依赖被组件的渲染作用追踪后调用。
 - `renderTriggered`:在一个响应式依赖被组件的渲染作用触发后调用。
+
+## 18. 获取图片打包后当前路径
+
+```js
+console.log(new URL('../wall.png', import.meta.url).href);
+```

@@ -98,6 +98,9 @@
     <!-- canvas实现 -->
     <canvas id="c" width="600" height="300"></canvas>
     <script type="module">
+        // 获取图片打包后当前路径
+        // console.log(new URL('../wall.png', import.meta.url).href);
+        
         ; (() => {
             const W = 600, H = 300;
             const cvs = document.getElementById('c');

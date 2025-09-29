@@ -9,7 +9,7 @@ export default defineConfig({
     ["link", { rel: "icon", href: "/vitepress-docs/favicon.ico" }], // 添加图标
   ],
   themeConfig: {
-    siteTitle: "七年就是一辈子",
+    siteTitle: "Alex🍊",
     logo: "/logo.png",
     nav: [
       { text: "博客园", link: "https://www.cnblogs.com/slfeng" }, // 内链
@@ -143,7 +143,10 @@ export default defineConfig({
             text: "CSS",
             collapsible: true,
             collapsed: true,
-            items: [{ text: "codepen", link: "/course/css/codepen" }],
+            items: [
+              { text: "codepen", link: "/course/css/codepen" },
+              { text: "css3", link: "/course/css/css3" },
+            ],
           },
           {
             text: "Vue",
@@ -175,30 +178,30 @@ export default defineConfig({
               { text: "react源码解析", link: "/course/react/react源码" },
             ],
           },
+          // {
+          //   text: "Angular ",
+          //   collapsible: true,
+          //   collapsed: true,
+          //   items: [
+          //     { text: "Angular", link: "/course/angular/angular" },
+          //   ]
+          // },
           {
-            text: "Angular ",
+            text: "包管理工具 ",
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "Angular", link: "/course/angular/angular" },
+              { text: "pnpm", link: "/course/nm/pnpm" },
             ]
           },
-          {
-            text: "Dart ",
-            collapsible: true,
-            collapsed: true,
-            items: [
-              { text: "Dart", link: "/course/dart/dart" },
-            ]
-          },
-          {
-            text: "Flutter ",
-            collapsible: true,
-            collapsed: true,
-            items: [
-              { text: "Flutter", link: "/course/flutter/flutter" },
-            ]
-          },
+          // {
+          //   text: "Flutter ",
+          //   collapsible: true,
+          //   collapsed: true,
+          //   items: [
+          //     { text: "Flutter", link: "/course/flutter/flutter" },
+          //   ]
+          // },
           {
             text: "前端工程化",
             collapsible: true,
@@ -212,6 +215,7 @@ export default defineConfig({
               { text: "微前端", link: "/course/前端工程化/微前端" },
               { text: "ESlint9", link: "/course/前端工程化/ESlint" },
               { text: "代码质量检测工具", link: "/course/前端工程化/代码质量检测工具" },
+              { text: "pnpmmonorepo工程管理", link: "/course/前端工程化/pnpmmonorepo工程管理" },
             ],
           },
           {
@@ -306,12 +310,20 @@ export default defineConfig({
               { text: "vite配置文件", link: "/course/vite/vite4" },
             ],
           },
+          // {
+          //   text: "Nodejs ",
+          //   collapsible: true,
+          //   collapsed: true,
+          //   items: [{ text: "nodejs", link: "/course/nodejs/nodejs" }],
+          // },
           {
-            text: "Nodejs ",
+            text: "chrome",
             collapsible: true,
             collapsed: true,
-            items: [{ text: "nodejs", link: "/course/nodejs/nodejs" }],
-          },
+            items: [
+              { text: "GPU", link: "/course/chrome/GPU" },
+            ]
+          }
         ],
       },
       {
@@ -385,6 +397,7 @@ export default defineConfig({
         items: [
           { text: "HBuilderX", link: "/plugin/HBuilderX/HBuilderX"},
           { text: "vite", link: "/plugin/vite/vite"},
+          { text: "vue", link: "/plugin/vue/vue"},
         ]
       },
       {
