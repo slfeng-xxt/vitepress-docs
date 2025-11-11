@@ -2,6 +2,7 @@
 
 - 版本： v3.2.29
 - 地址： <https://github.com/vuejs/core>
+- 源码解析文档参考： <https://vue3js.cn/start/>
 
 :::tip
 “人与人之间的差距不是来自年龄，甚至不是来自经验，而是来自经验总结、反思和升华的能力”

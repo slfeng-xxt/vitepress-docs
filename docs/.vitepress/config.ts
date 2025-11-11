@@ -187,7 +187,7 @@ export default defineConfig({
           //   ]
           // },
           {
-            text: "包管理工具 ",
+            text: "包管理工具",
             collapsible: true,
             collapsed: true,
             items: [
@@ -209,13 +209,13 @@ export default defineConfig({
             items: [
               { text: "AST", link: "/course/前端工程化/AST" },
               { text: "工程化", link: "/course/前端工程化/工程化" },
-              { text: "wbebpack", link: "/course/前端工程化/wbebpack" },
+              { text: "webpack", link: "/course/前端工程化/webpack" },
               { text: "打包工具", link: "/course/前端工程化/打包工具" },
               { text: "自动化", link: "/course/前端工程化/自动化" },
               { text: "微前端", link: "/course/前端工程化/微前端" },
               { text: "ESlint9", link: "/course/前端工程化/ESlint" },
               { text: "代码质量检测工具", link: "/course/前端工程化/代码质量检测工具" },
-              { text: "pnpmmonorepo工程管理", link: "/course/前端工程化/pnpmmonorepo工程管理" },
+              { text: "monorepo工程管理", link: "/course/前端工程化/pnpmmonorepo工程管理" },
             ],
           },
           {
@@ -249,8 +249,8 @@ export default defineConfig({
               { text: "设计模式之创建型", link: "/course/前端升级/设计模式1" },
               { text: "设计模式之结构型", link: "/course/前端升级/设计模式2" },
               { text: "设计模式之行为型", link: "/course/前端升级/设计模式3" },
-              { text: "数据结构", link: "/course/前端升级/数据结构" },
-              { text: "算法", link: "/course/前端升级/算法" },
+              { text: "数据结构 ", link: "/course/前端升级/数据结构" },
+              { text: "算法 ", link: "/course/前端升级/算法" },
             ],
           },
           {
@@ -310,18 +310,29 @@ export default defineConfig({
               { text: "vite配置文件", link: "/course/vite/vite4" },
             ],
           },
-          // {
-          //   text: "Nodejs ",
-          //   collapsible: true,
-          //   collapsed: true,
-          //   items: [{ text: "nodejs", link: "/course/nodejs/nodejs" }],
-          // },
           {
-            text: "chrome",
+            text: "Node",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "第一节", link: "/course/node/node00" },
+              { text: "第二节", link: "/course/node/node01" },
+              { text: "第三节", link: "/course/node/node02" },
+              // { text: "node第四节", link: "/course/node/node00" },
+              // { text: "node第五节", link: "/course/node/node00" },
+              // { text: "node第六节", link: "/course/node/node00" },
+              // { text: "node第七节", link: "/course/node/node00" },
+              // { text: "node第八节", link: "/course/node/node00" },
+              // { text: "node第九节", link: "/course/node/node00" },
+            ],
+          },
+          {
+            text: "chrome ",
             collapsible: true,
             collapsed: true,
             items: [
               { text: "GPU", link: "/course/chrome/GPU" },
+              { text: "脚本", link: "/course/chrome/脚本" },
             ]
           }
         ],
@@ -351,12 +362,6 @@ export default defineConfig({
         ],
       },
       {
-        text: "web3.0",
-        collapsible: true,
-        collapsed: true,
-        items: [{ text: "web3.0", link: "/course/web3/web3.0" }],
-      },
-      {
         text: "AI",
         collapsible: true,
         collapsed: true,
@@ -367,6 +372,12 @@ export default defineConfig({
           },
         ],
       },
+      // {
+      //   text: "web3.0",
+      //   collapsible: true,
+      //   collapsed: true,
+      //   items: [{ text: "web3.0", link: "/course/web3/web3.0" }],
+      // },
       // {
       //   text: "PLC",
       //   collapsible: true,
