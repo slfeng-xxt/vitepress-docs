@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: 开博科技
+  name: 工作笔记
   text: Less is more, slow is fast, and no desire is strong
   tagline: to record progress content of the project
   image:

@@ -108,22 +108,22 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "原型&原型链", link: "/course/javascript/原型&原型链" },
-              { text: "作用域", link: "/course/javascript/作用域" },
-              { text: "执行上下文", link: "/course/javascript/执行上下文" },
-              { text: "this", link: "/course/javascript/this" },
-              { text: "闭包", link: "/course/javascript/闭包" },
-              { text: "call、apply、bind", link: "/course/javascript/call" },
-              { text: "new", link: "/course/javascript/new" },
-              { text: "promise", link: "/course/javascript/promise" },
-              { text: "浏览器事件", link: "/course/javascript/浏览器事件" },
-              { text: "浏览器请求", link: "/course/javascript/浏览器请求" },
-              { text: "模块化", link: "/course/javascript/模块化" },
-              { text: "垃圾回收", link: "/course/javascript/GC" },
-              { text: "运行机制", link: "/course/javascript/运行机制" },
-              { text: "函数式编程", link: "/course/javascript/函数式编程" },
-              { text: "es6", link: "/course/javascript/ES6" },
-              { text: "babel", link: "/course/javascript/编译器" },
+              { text: "原型&原型链", link: "/front/javascript/原型&原型链" },
+              { text: "作用域", link: "/front/javascript/作用域" },
+              { text: "执行上下文", link: "/front/javascript/执行上下文" },
+              { text: "this", link: "/front/javascript/this" },
+              { text: "闭包", link: "/front/javascript/闭包" },
+              { text: "call、apply、bind", link: "/front/javascript/call" },
+              { text: "new", link: "/front/javascript/new" },
+              { text: "promise", link: "/front/javascript/promise" },
+              { text: "浏览器事件", link: "/front/javascript/浏览器事件" },
+              { text: "浏览器请求", link: "/front/javascript/浏览器请求" },
+              { text: "模块化", link: "/front/javascript/模块化" },
+              { text: "垃圾回收", link: "/front/javascript/GC" },
+              { text: "运行机制", link: "/front/javascript/运行机制" },
+              { text: "函数式编程", link: "/front/javascript/函数式编程" },
+              { text: "es6", link: "/front/javascript/ES6" },
+              { text: "babel", link: "/front/javascript/编译器" },
             ],
           },
           {
@@ -131,12 +131,12 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "初级-1", link: "/course/typescript/第一章.md" },
-              { text: "初级-2", link: "/course/typescript/第二章.md" },
-              { text: "初级-3", link: "/course/typescript/第三章.md" },
-              { text: "初级-4", link: "/course/typescript/第四章.md" },
-              { text: "初级-5", link: "/course/typescript/第五章.md" },
-              { text: "练习", link: "/course/javascript/TS" },
+              { text: "初级-1", link: "/front/typescript/第一章.md" },
+              { text: "初级-2", link: "/front/typescript/第二章.md" },
+              { text: "初级-3", link: "/front/typescript/第三章.md" },
+              { text: "初级-4", link: "/front/typescript/第四章.md" },
+              { text: "初级-5", link: "/front/typescript/第五章.md" },
+              { text: "练习", link: "/front/javascript/TS" },
             ]
           },
           {
@@ -144,8 +144,8 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "codepen", link: "/course/css/codepen" },
-              { text: "css3", link: "/course/css/css3" },
+              { text: "codepen", link: "/front/css/codepen" },
+              { text: "css3", link: "/front/css/css3" },
             ],
           },
           {
@@ -153,16 +153,16 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "vue2", link: "/course/vue/vue2" },
-              { text: "vue3", link: "/course/vue/vue3" },
-              { text: "vue3强化", link: "/course/vue/vue3强化" },
-              { text: "vue3响应式丢失", link: "/course/vue/vue3响应式丢失" },
-              { text: "vue状态管理", link: "/course/vue/状态管理" },
-              { text: "vue-cli", link: "/course/vue/cli" },
-              { text: "vue-Router", link: "/course/vue/Router" },
-              { text: "SSR", link: "/course/vue/SSR" },
-              { text: "vue2源码解析", link: "/course/vue/vue2源码" },
-              { text: "vue3源码解析", link: "/course/vue/vue3源码" },
+              { text: "vue2", link: "/front/vue/vue2" },
+              { text: "vue3", link: "/front/vue/vue3" },
+              { text: "vue3强化", link: "/front/vue/vue3强化" },
+              { text: "vue3响应式丢失", link: "/front/vue/vue3响应式丢失" },
+              { text: "vue状态管理", link: "/front/vue/状态管理" },
+              { text: "vue-cli", link: "/front/vue/cli" },
+              { text: "vue-Router", link: "/front/vue/Router" },
+              { text: "SSR", link: "/front/vue/SSR" },
+              { text: "vue2源码解析", link: "/front/vue/vue2源码" },
+              { text: "vue3源码解析", link: "/front/vue/vue3源码" },
             ],
           },
           {
@@ -170,12 +170,12 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "react基础", link: "/course/react/react基础" },
-              { text: "react高级用法", link: "/course/react/react高级用法" },
-              { text: "react状态管理", link: "/course/react/react状态管理" },
-              { text: "CRA", link: "/course/react/CRA" },
-              { text: "react-router", link: "/course/react/react-router" },
-              { text: "react源码解析", link: "/course/react/react源码" },
+              { text: "react基础", link: "/front/react/react基础" },
+              { text: "react高级用法", link: "/front/react/react高级用法" },
+              { text: "react状态管理", link: "/front/react/react状态管理" },
+              { text: "CRA", link: "/front/react/CRA" },
+              { text: "react-router", link: "/front/react/react-router" },
+              { text: "react源码解析", link: "/front/react/react源码" },
             ],
           },
           // {
@@ -183,7 +183,7 @@ export default defineConfig({
           //   collapsible: true,
           //   collapsed: true,
           //   items: [
-          //     { text: "Angular", link: "/course/angular/angular" },
+          //     { text: "Angular", link: "/front/angular/angular" },
           //   ]
           // },
           {
@@ -191,7 +191,7 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "pnpm", link: "/course/nm/pnpm" },
+              { text: "pnpm", link: "/front/nm/pnpm" },
             ]
           },
           // {
@@ -199,7 +199,7 @@ export default defineConfig({
           //   collapsible: true,
           //   collapsed: true,
           //   items: [
-          //     { text: "Flutter", link: "/course/flutter/flutter" },
+          //     { text: "Flutter", link: "/front/flutter/flutter" },
           //   ]
           // },
           {
@@ -207,15 +207,15 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "AST", link: "/course/前端工程化/AST" },
-              { text: "工程化", link: "/course/前端工程化/工程化" },
-              { text: "webpack", link: "/course/前端工程化/webpack" },
-              { text: "打包工具", link: "/course/前端工程化/打包工具" },
-              { text: "自动化", link: "/course/前端工程化/自动化" },
-              { text: "微前端", link: "/course/前端工程化/微前端" },
-              { text: "ESlint9", link: "/course/前端工程化/ESlint" },
-              { text: "代码质量检测工具", link: "/course/前端工程化/代码质量检测工具" },
-              { text: "monorepo工程管理", link: "/course/前端工程化/pnpmmonorepo工程管理" },
+              { text: "AST", link: "/front/前端工程化/AST" },
+              { text: "工程化", link: "/front/前端工程化/工程化" },
+              { text: "webpack", link: "/front/前端工程化/webpack" },
+              { text: "打包工具", link: "/front/前端工程化/打包工具" },
+              { text: "自动化", link: "/front/前端工程化/自动化" },
+              { text: "微前端", link: "/front/前端工程化/微前端" },
+              { text: "ESlint9", link: "/front/前端工程化/ESlint" },
+              { text: "代码质量检测工具", link: "/front/前端工程化/代码质量检测工具" },
+              { text: "monorepo工程管理", link: "/front/前端工程化/pnpmmonorepo工程管理" },
             ],
           },
           {
@@ -223,11 +223,11 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "脚手架开发流程", link: "/course/前端脚手架/00.md" },
-              { text: "构建一个脚手架", link: "/course/前端脚手架/01.md" },
-              { text: "脚手架命令注册&参数解析", link: "/course/前端脚手架/02.md" },
-              { text: "脚手架原理", link: "/course/前端脚手架/03.md" },
-              { text: "Lerna", link: "/course/前端脚手架/04.md" },
+              { text: "脚手架开发流程", link: "/front/前端脚手架/00.md" },
+              { text: "构建一个脚手架", link: "/front/前端脚手架/01.md" },
+              { text: "脚手架命令注册&参数解析", link: "/front/前端脚手架/02.md" },
+              { text: "脚手架原理", link: "/front/前端脚手架/03.md" },
+              { text: "Lerna", link: "/front/前端脚手架/04.md" },
             ]
           },
           {
@@ -235,9 +235,9 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "缓存", link: "/course/前端性能优化/缓存" },
-              { text: "vue性能优化", link: "/course/前端性能优化/vue" },
-              { text: "react性能优化 ", link: "/course/前端性能优化/react" },
+              { text: "缓存", link: "/front/前端性能优化/缓存" },
+              { text: "vue性能优化", link: "/front/前端性能优化/vue" },
+              { text: "react性能优化 ", link: "/front/前端性能优化/react" },
             ],
           },
           {
@@ -245,12 +245,12 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "设计模式之前言", link: "/course/前端升级/设计模式0" },
-              { text: "设计模式之创建型", link: "/course/前端升级/设计模式1" },
-              { text: "设计模式之结构型", link: "/course/前端升级/设计模式2" },
-              { text: "设计模式之行为型", link: "/course/前端升级/设计模式3" },
-              { text: "数据结构 ", link: "/course/前端升级/数据结构" },
-              { text: "算法 ", link: "/course/前端升级/算法" },
+              { text: "设计模式之前言", link: "/front/前端升级/设计模式0" },
+              { text: "设计模式之创建型", link: "/front/前端升级/设计模式1" },
+              { text: "设计模式之结构型", link: "/front/前端升级/设计模式2" },
+              { text: "设计模式之行为型", link: "/front/前端升级/设计模式3" },
+              { text: "数据结构 ", link: "/front/前端升级/数据结构" },
+              { text: "算法 ", link: "/front/前端升级/算法" },
             ],
           },
           {
@@ -260,9 +260,9 @@ export default defineConfig({
             items: [
               {
                 text: "vue-router源码解析",
-                link: "/course/前端生态库/vueRouter",
+                link: "/front/前端生态库/vueRouter",
               },
-              { text: "vue-cli源码解析", link: "/course/前端生态库/vueCli" },
+              { text: "vue-cli源码解析", link: "/front/前端生态库/vueCli" },
             ],
           },
           {
@@ -270,9 +270,9 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "初级", link: "/course/组件库开发/初级" },
-              { text: "中级", link: "/course/组件库开发/中级" },
-              { text: "高级", link: "/course/组件库开发/高级" },
+              { text: "初级", link: "/front/组件库开发/初级" },
+              { text: "中级", link: "/front/组件库开发/中级" },
+              { text: "高级", link: "/front/组件库开发/高级" },
             ]
           },
           {
@@ -284,6 +284,7 @@ export default defineConfig({
               { text: "安装", link: "/course/git/git安装" },
               { text: "教程", link: "/course/git/git教程" },
               { text: "gitignore", link: "/course/git/gitignore" },
+              { text: "git命令", link: "/course/git/git命令" },
             ],
           },
           {
@@ -303,11 +304,11 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "前言概览", link: "/course/vite/vite0" },
-              { text: "什么是构建工具", link: "/course/vite/vite1" },
-              { text: "vite相对于webpack的优势", link: "/course/vite/vite2" },
-              { text: "vite脚手架", link: "/course/vite/vite3" },
-              { text: "vite配置文件", link: "/course/vite/vite4" },
+              { text: "前言概览", link: "/front/vite/vite0" },
+              { text: "什么是构建工具", link: "/front/vite/vite1" },
+              { text: "vite相对于webpack的优势", link: "/front/vite/vite2" },
+              { text: "vite脚手架", link: "/front/vite/vite3" },
+              { text: "vite配置文件", link: "/front/vite/vite4" },
             ],
           },
           {
@@ -315,15 +316,9 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "第一节", link: "/course/node/node00" },
-              { text: "第二节", link: "/course/node/node01" },
-              { text: "第三节", link: "/course/node/node02" },
-              // { text: "node第四节", link: "/course/node/node00" },
-              // { text: "node第五节", link: "/course/node/node00" },
-              // { text: "node第六节", link: "/course/node/node00" },
-              // { text: "node第七节", link: "/course/node/node00" },
-              // { text: "node第八节", link: "/course/node/node00" },
-              // { text: "node第九节", link: "/course/node/node00" },
+              { text: "第一节", link: "/front/node/node00" },
+              { text: "第二节", link: "/front/node/node01" },
+              { text: "第三节", link: "/front/node/node02" },
             ],
           },
           {
@@ -331,10 +326,29 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "GPU", link: "/course/chrome/GPU" },
-              { text: "脚本", link: "/course/chrome/脚本" },
+              { text: "GPU", link: "/front/chrome/GPU" },
+              { text: "脚本", link: "/front/chrome/脚本" },
             ]
-          }
+          },{
+            text: "网络",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              // { text: "网络基础", link: "/front/网络/网络基础" },
+            ]
+          },{
+            text: "浏览器原理",
+            collapsible: true,
+            collapsed: true,
+            items: [
+            ]
+          },{
+            text: "服务端渲染",
+            collapsible: true,
+            collapsed: true,
+            items: [
+            ]
+          },
         ],
       },
       {
@@ -343,22 +357,36 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
+            text: "express",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "express基础", link: "/backend/express/express00" },
+            ],
+          },
+          {
             text: "Java",
             collapsible: true,
             collapsed: true,
-            items: [{ text: "java基础", link: "/course/java/java基础" }],
+            items: [{ text: "java基础", link: "/backend/java/java基础" }],
           },
           {
             text: "数据库",
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "mysql", link: "/course/数据库/mysql" },
-              { text: "redis", link: "/course/数据库/redis" },
-              { text: "mongodb", link: "/course/数据库/mongodb" },
-              { text: "oracle", link: "/course/数据库/oracle" },
+              { text: "mysql", link: "/backend/数据库/mysql" },
+              { text: "redis", link: "/backend/数据库/redis" },
+              { text: "mongodb", link: "/backend/数据库/mongodb" },
+              { text: "oracle", link: "/backend/数据库/oracle" },
             ],
           },
+          {
+            text: "数据驱动和ORM",
+            collapsible: true,
+            collapsed: true,
+            items: [{ text: "mysql驱动程序", link: "/backend/数据驱动/mysql驱动程序" }],
+          }
         ],
       },
       {
@@ -389,18 +417,18 @@ export default defineConfig({
       //     },
       //   ]
       // },
-      {
-        text: "组件库",
-        collapsible: true,
-        collapsed: true,
-        items: [
-          {
-            text: "小程序组件库",
-            link: "/componentlib/小程序组件库",
-          },
-          { text: "pc组件", link: "/componentlib/pc组件" },
-        ],
-      },
+      // {
+      //   text: "组件库",
+      //   collapsible: true,
+      //   collapsed: true,
+      //   items: [
+      //     {
+      //       text: "小程序组件库",
+      //       link: "/componentlib/小程序组件库",
+      //     },
+      //     { text: "pc组件", link: "/componentlib/pc组件" },
+      //   ],
+      // },
       {
         text: "插件",
         collapsible: true,
@@ -417,7 +445,7 @@ export default defineConfig({
         collapsed:true,
         items: [
           { text: "css", link: "/splinter/css/index" },
-          { text: "js", link: "/splinter/js/index" },
+          // { text: "js", link: "/splinter/js/index" },
           { text: "vite", link: "/splinter/vite/index" },
         ],
       },
