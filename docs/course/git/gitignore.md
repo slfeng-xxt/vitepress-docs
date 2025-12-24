@@ -8,7 +8,7 @@
 
 ### 1. 基本规则
 
-```gitignore
+```text
 # 忽略单个文件
 temp.txt
 
@@ -25,7 +25,7 @@ src/config/secret.json
 
 ### 2. 通配符
 
-```gitignore
+```text
 # * 匹配零个或多个字符
 *.txt           # 所有 .txt 文件
 temp*           # 以 temp 开头的文件
@@ -40,7 +40,7 @@ temp[abc].txt   # tempa.txt, tempb.txt, tempc.txt
 
 ### 3. 路径匹配
 
-```gitignore
+```text
 # 以 / 开头表示根目录
 /README.md      # 只忽略根目录下的 README.md
 
@@ -54,7 +54,7 @@ logs/**         # 忽略 logs 目录下的所有内容
 
 ### 4. 否定模式
 
-```gitignore
+```text
 # ! 表示不忽略（白名单）
 *.log           # 忽略所有 .log 文件
 !important.log  # 但不忽略 important.log
@@ -68,7 +68,7 @@ build/          # 忽略 build 目录
 
 ### 1. Node.js 项目
 
-```gitignore
+```text
 # 依赖
 node_modules/
 npm-debug.log*
@@ -107,7 +107,7 @@ Thumbs.db
 
 ### 2. Python 项目
 
-```gitignore
+```text
 # 字节码文件
 __pycache__/
 *.py[cod]
@@ -146,7 +146,7 @@ htmlcov/
 
 ### 3. Java 项目
 
-```gitignore
+```text
 # 编译文件
 *.class
 *.jar
@@ -177,7 +177,7 @@ build/
 
 ### 4. 前端项目通用
 
-```gitignore
+```text
 # 依赖
 node_modules/
 bower_components/
@@ -272,7 +272,7 @@ git status --ignored
 
 ### 案例1：Vue.js 项目
 
-```gitignore
+```text
 # 依赖
 node_modules/
 jspm_packages/
@@ -312,7 +312,7 @@ Thumbs.db
 
 ### 案例2：React + TypeScript 项目
 
-```gitignore
+```text
 # 依赖
 node_modules/
 /.pnp
@@ -349,7 +349,7 @@ storybook-static/
 
 ### 案例3：全栈项目（前端+后端）
 
-```gitignore
+```text
 # 前端
 client/node_modules/
 client/dist/
@@ -386,7 +386,7 @@ Thumbs.db
 
 ### 1. 只忽略根目录下的文件
 
-```gitignore
+```text
 # 只忽略根目录的 config.json
 /config.json
 
@@ -396,7 +396,7 @@ Thumbs.db
 
 ### 2. 忽略除了特定文件的整个目录
 
-```gitignore
+```text
 # 忽略 logs 目录的所有内容
 logs/*
 
@@ -406,7 +406,7 @@ logs/*
 
 ### 3. 条件忽略
 
-```gitignore
+```text
 # 忽略所有 .txt 文件
 *.txt
 
@@ -416,7 +416,7 @@ logs/*
 
 ### 4. 模式匹配示例
 
-```gitignore
+```text
 # 忽略所有 .a 文件
 *.a
 
