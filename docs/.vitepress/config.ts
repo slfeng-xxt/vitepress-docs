@@ -395,9 +395,21 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
+            text: "规划与思考🤔",
+            link: "/AI/规划与思考.md",
+          },
+          {
+            text: "agent",
+            link: "/AI/agent.md",
+          },
+          {
             text: "MCP",
             link: "/AI/MCP.md",
           },
+          {
+            text: "skill",
+            link: "/AI/skill.md",
+          }
         ],
       },
       // {
