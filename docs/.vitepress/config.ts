@@ -57,6 +57,14 @@ export default defineConfig({
             link: "/projects/项目映射",
           },
           {
+            text:  "智慧储能系统",
+            link: "/projects/智慧储能系统",
+          },
+          {
+            text:  "APP",
+            link: "/projects/app",
+          },
+          {
             text: "大屏",
             link: "/projects/大屏",
           },
@@ -194,14 +202,14 @@ export default defineConfig({
               { text: "pnpm", link: "/front/nm/pnpm" },
             ]
           },
-          // {
-          //   text: "Flutter ",
-          //   collapsible: true,
-          //   collapsed: true,
-          //   items: [
-          //     { text: "Flutter", link: "/front/flutter/flutter" },
-          //   ]
-          // },
+          {
+            text: "Flutter ",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "dart基础", link: "/front/flutter/dart基础" },
+            ]
+          },
           {
             text: "前端工程化",
             collapsible: true,
@@ -395,10 +403,6 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
-            text: "规划与思考🤔",
-            link: "/AI/规划与思考.md",
-          },
-          {
             text: "agent",
             link: "/AI/agent.md",
           },
@@ -409,7 +413,15 @@ export default defineConfig({
           {
             text: "skill",
             link: "/AI/skill.md",
-          }
+          },
+          {
+            text: "clawdbot",
+            link: "/AI/clawdbot.md",
+          },
+          {
+            text: "规划与思考🤔",
+            link: "/AI/规划与思考.md",
+          },
         ],
       },
       // {

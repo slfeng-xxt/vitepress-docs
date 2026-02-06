@@ -1,7 +1,9 @@
 # agent skill
 
-:::tips
+:::tip
 agent skill  大模型要干什么的说明文档,提前订好规矩与输出边界并在使用的时候按需加载,达到节省token的目的
+
+大白话：提示词管理工具
 :::
 
 ## 1. agent skill使用过程(按需加载)
