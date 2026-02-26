@@ -62,7 +62,7 @@ export default defineConfig({
           },
           {
             text:  "APP",
-            link: "/projects/app",
+            link: "/projects/APP",
           },
           {
             text: "大屏",

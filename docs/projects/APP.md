@@ -1,5 +1,13 @@
 # 智慧储能系统APP
 
+:::tip
+参考项目：
+
+- [unibest](https://www.unibest.tech/)
+- [vue-uniapp-admin](https://gitee.com/youlaiorg/vue-uniapp-admin)
+
+:::
+
 ## 1.真机调试
 
 ### 1.1 安卓
@@ -78,7 +86,7 @@
 3.启动页配置
 :::
 
-## 4. 优化
+## 4. 待优化
 
 ### 4.1 埋点（分析页面功能使用量）
 

@@ -15,15 +15,18 @@
 
 - 组件化：React 将 UI 分解为独立、可复用的组件，使代码更易于维护和扩展。每个组件都有自己的状态和属性，可以独立更新和渲染。
 - 声明式：React 使用 JSX 语法，使代码更直观、易读。开发者只需关注组件的渲染逻辑，而不必关心 DOM 操作。
-- 虚拟DOM：React 使用虚拟 DOM 来提高性能。虚拟 DOM 是一个轻量级的 JavaScript 对象，代表真实的 DOM。当组件的状态或属性发生变化时，React 会先更新虚拟 DOM，然后通过 diff 算法计算出实际 DOM 需要更新的部分，最后只更新这些部分，而不是整个 DOM 树。
+- 虚拟DOM：React 使用虚拟 DOM 来提高性能。虚拟 DOM 是一个轻量级的 JavaScript 对象，代表真实的 DOM。
+当组件的状态或属性发生变化时，React 会先更新虚拟 DOM，然后通过 diff 算法计算出实际 DOM 需要更新的部分，最后只更新这些部分，而不是整个 DOM 树。
 - 单向数据流：React 采用单向数据流，即数据从父组件流向子组件，子组件不能直接修改父组件的状态。这种设计使得组件之间的通信更加清晰和可预测。
 - 高效：React 使用虚拟 DOM 和 diff 算法，使得渲染性能得到了显著提升。同时，React 还提供了生命周期方法和钩子函数，使开发者可以更灵活地控制组件的生命周期。
 
 ## 3 jsx模版语法
 
+- **JSX 语法最终会被 Babel 编译为调用React.createElement() 函数，生成js对象。本质：就是一种语法糖**
 - JSX 是一种 JavaScript 的语法扩展，它允许在 JavaScript 代码中直接书写类似 HTML 的代码。React 使用 JSX 来描述 UI 的结构。
 - 在 JSX 中，可以使用 JavaScript 表达式，用大括号 `{}` 包裹起来。例如，可以插入变量、函数调用、条件语句等。
-- JSX 中的 HTML 标签和属性与普通的 HTML 标签和属性相同。例如，可以使用 `<div>` 标签来创建一个 div 元素，使用 `className` 属性来指定 CSS 类名。- JSX 中的自定义组件必须以大写字母开头。例如，可以使用 `<MyComponent />` 来创建一个自定义组件。
+- JSX 中的 HTML 标签和属性与普通的 HTML 标签和属性相同。例如，可以使用 `<div>` 标签来创建一个 div 元素，使用 `className` 属性来指定 CSS 类名。因为`class`在js中是关键字，所以使用`className`代替。
+- JSX 中的自定义组件必须以大写字母开头。例如，可以使用 `<MyComponent />` 来创建一个自定义组件。
 - JSX 中的注释与 JavaScript 中的注释相同，使用 `//` 或 `/* */` 来注释。
 - JSX 中的样式属性必须使用 camelCase 命名法，例如 `backgroundColor` 而不是 `background-color`。
 - JSX 中的事件处理函数必须使用驼峰命名法，例如 `onClick` 而不是 `onclick`。
@@ -32,7 +35,8 @@
 ## 4 react组件形式
 
 - 函数组件：函数组件是一个纯函数，接收 props 作为参数，并返回 JSX 元素。**函数组件没有状态和生命周期方法。**
-- Class类组件：类组件是一个 ES6 类，继承自 React.Component。类组件有状态和生命周期方法，可以使用 `this.state` 来访问状态，使用 `this.setState` 来更新状态。类组件必须实现 `render` 方法，该方法返回 JSX 元素。
+- Class类组件：类组件是一个 ES6 类，继承自 React.Component。类组件有状态和生命周期方法，可以使用 `this.state` 来访问状态，
+使用 `this.setState` 来更新状态。类组件必须实现 `render` 方法，该方法返回 JSX 元素。
 
 ```jsx
 // 函数组件
@@ -53,13 +57,62 @@ class MyComponent extends React.Component {
 }
 ```
 
+### 4.1 类组件的this
+
+- 在类组件中，`this` 关键字指向组件实例。在类组件的方法中，可以使用 `this` 来访问组件实例的属性和方法。
+- 在类组件的方法中，`this` 的指向取决于方法的调用方式。如果方法被直接调用，`this` 的指向是 undefined。
+如果方法被作为回调函数传递给其他函数，`this` 的指向是 undefined。如果方法被作为事件处理函数绑定到元素上，`this` 的指向是组件实例。
+
+```jsx
+// 类组件中this的修正3种方式
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+    // 方式1：在构造函数中绑定this
+    // this.handleClick = this.handleClick.bind(this);
+  }
+
+  // 方式2: 使用箭头函数定义方法
+  handleClick = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    // 方式3: 在render方法中绑定this,箭头函数
+    // return <button onClick={ () => this.handleClick() }>Click me</button>;
+    return <button onClick={this.handleClick}>Click me</button>;
+  }
+}
+```
+
+### 4.2 类组件的事件参数传递
+
+```jsx
+class MyComponent extends React.Component {
+  handleClick = (data, event) => {
+    console.log(event, data);
+  };
+
+  render() {
+    return <button onClick={(event) => this.handleClick('data', event)}>Click me</button>;
+    // return <button onClick={this.handleClick.bind(this, 'data')}>Click me</button>;
+  }
+}
+```
+
 ## 5 react组件
 
 ### 5.1 组件通信
 
-- 父组件向子组件传递数据：**使用 props 传递数据**。父组件通过 props 将数据传递给子组件，子组件通过 props 接收数据。例如，父组件可以通过 `<ChildComponent name="John" />` 将 name 传递给子组件，子组件可以通过 `this.props.name` 访问 name。
-- 子组件向父组件传递数据：**使用回调函数**。父组件可以通过 props 将一个回调函数传递给子组件，子组件在需要时调用该回调函数，并将数据作为参数传递给回调函数。例如，父组件可以通过 `<ChildComponent onButtonClick={this.handleButtonClick} />` 将 handleButtonClick 传递给子组件，子组件可以通过 `this.props.onButtonClick(data)` 调用回调函数，并将数据作为参数传递给回调函数。
-- 兄弟组件之间传递数据：**使用状态提升**。将状态提升到它们的共同父组件中，然后通过 props 将状态和更新状态的函数传递给兄弟组件。兄弟组件可以通过调用更新状态的函数来更新状态，从而实现兄弟组件之间的通信。例如，父组件可以通过 `<SiblingComponentA state={this.state} updateState={this.updateState} />` 将状态和更新状态的函数传递给 SiblingComponentA 和 SiblingComponentB，SiblingComponentA 和 SiblingComponentB 可以通过调用 `this.props.updateState(data)` 来更新状态。
+- 父组件向子组件传递数据：**使用 props 传递数据**。父组件通过 props 将数据传递给子组件，子组件通过 props 接收数据。
+例如，父组件可以通过 `<ChildComponent name="John" />` 将 name 传递给子组件，子组件可以通过 `this.props.name` 访问 name。
+- 子组件向父组件传递数据：**使用回调函数**。父组件可以通过 props 将一个回调函数传递给子组件，子组件在需要时调用该回调函数，并将数据作为参数传递给回调函数。
+例如，父组件可以通过 `<ChildComponent onButtonClick={this.handleButtonClick} />` 将 handleButtonClick 传递给子组件，
+子组件可以通过 `this.props.onButtonClick(data)` 调用回调函数，并将数据作为参数传递给回调函数。
+- 兄弟组件之间传递数据：**使用状态提升**。将状态提升到它们的共同父组件中，然后通过 props 将状态和更新状态的函数传递给兄弟组件。兄弟组件可以通过调用更新状态的函数来更新状态，从而实现兄弟组件之间的通信。
+例如，父组件可以通过 `<SiblingComponentA state={this.state} updateState={this.updateState} />` 将状态和更新状态的函数传递给 SiblingComponentA
+和 SiblingComponentB，SiblingComponentA 和 SiblingComponentB 可以通过调用 `this.props.updateState(data)` 来更新状态。
 
 ```jsx
 // 父组件
@@ -215,7 +268,8 @@ Function Component 是更彻底的状态驱动抽象，甚至没有 Class Compon
 - React 16.8 引入了 Hooks，使得函数组件也可以使用生命周期方法。函数组件的生命周期方法可以通过 `useEffect` Hook 来实现。
 
 ```txt
-useEffect 就是一个 Effect Hook ，给函数组件增加了操作副作用的能力。它跟 class 组件中的 componentDidMount 、 componentDidUpdate  和 componentWillUnmount 具有相同的用途，只不过被合并成了一个 API。
+useEffect 就是一个 Effect Hook ，给函数组件增加了操作副作用的能力。
+它跟 class 组件中的 componentDidMount 、 componentDidUpdate  和 componentWillUnmount 具有相同的用途，只不过被合并成了一个 API。
 ```
 
 ```jsx
@@ -242,9 +296,13 @@ function MyComponent() {
 React 中的事件处理与原生 JavaScript 中的事件处理类似，但是有一些不同之处。以下是 React 事件处理的一些关键点：
 
 1. 事件名称：React 中的事件名称与原生 JavaScript 中的事件名称相同，但是需要使用驼峰命名法。例如，`onClick`、`onChange` 等。
-2. 事件对象：React 中的事件对象是一个合成事件对象，它是一个对原生事件对象的封装。合成事件对象与原生事件对象具有相同的接口，但是它提供了一些额外的功能，例如事件委托和事件池。在处理事件时，应该使用合成事件对象，而不是原生事件对象。
-3. 事件绑定：在 React 中，事件绑定是通过在 JSX 中使用 `onEventName` 属性来实现的。例如，`<button onClick={handleClick}>Click me</button>`。在事件处理函数中，可以使用 `event` 参数来获取事件对象。例如，`function handleClick(event) { console.log(event.target.value); }`。
-4. 事件传播：React 中的事件传播与原生 JavaScript 中的事件传播相同。事件可以在组件树中向上或向下传播。可以使用 `event.stopPropagation()` 来阻止事件传播，使用 `event.preventDefault()` 来阻止默认行为。
+2. 事件对象：React 中的事件对象是一个**合成事件对象**【不用担心浏览器兼容】，它是一个对原生事件对象的封装。合成事件对象与原生事件对象具有相同的接口，但是它提供了一些额外的功能，例如事件委托和事件池。在处理事件时，应该使用合成事件对象，而不是原生事件对象。
+如果想要原生的事件对象：`event.nativeEvent`。
+3. 事件绑定：在 React 中，事件绑定是通过在 JSX 中使用 `onEventName` 属性来实现的。
+例如，`<button onClick={handleClick}>Click me</button>`。在事件处理函数中，可以使用 `event` 参数来获取事件对象。
+例如，`function handleClick(event) { console.log(event.target.value); }`。
+4. 事件传播：React 中的事件传播与原生 JavaScript 中的事件传播相同。事件可以在组件树中向上或向下传播。
+可以使用 `event.stopPropagation()` 来阻止事件传播，使用 `event.preventDefault()` 来阻止默认行为。
 
 ```jsx
 import React from 'react';
