@@ -2,6 +2,32 @@
 
 [React Router v6.21.1 中文文档](https://baimingxuan.github.io/react-router6-doc/)
 
+## 0. 前言
+
+### 0.1 早期后端路由（web站点）
+
+客户端发起请求，服务端根据请求的 URL 返回不同的 HTML 页面。
+
+#### 后端路由的缺点
+
+1. 整个页面重新加载，页面切换慢
+2. 页面切换无刷新，用户体验差
+3. 服务端压力大，不利于 SEO
+
+### 0.2 前端路由（web应用）
+
+随着技术发展单页面的应用，整个页面只有一个 HTML，通过 JavaScript 动态渲染页面内容。前端路由负责切换不同模块，后端路由负责处理不同请求数据。
+
+#### 前端路由的优点
+
+1. 页面无刷新，用户体验好
+2. 页面切换快
+3. 服务端压力小，利于 SEO
+
+#### 补充
+
+- [前端开发中常见的 SEO 优化](https://zhuanlan.zhihu.com/p/1894432680235472422)
+
 ## 1. 基本使用
 
 ### 1.1 安装
@@ -9,6 +35,12 @@
 ```shell
 npm install react-router-dom
 ```
+
+包含以下内容：
+
+- Components：组件
+- Hooks：钩子函数
+- Utilities：工具函数
 
 ### 1.2 定义路由
 
@@ -58,7 +90,8 @@ function Page1() {
 }
 ```
 
-**Navigate**：它是一个 React 组件，用于在应用程序中导航到另一个页面。它接受一个 `to` 属性，该属性指定目标页面的 URL。当组件被渲染时，Navigate 组件将使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
+**Navigate**：它是一个 React 组件，用于在应用程序中导航到另一个页面。它接受一个 `to` 属性，该属性指定目标页面的 URL。
+当组件被渲染时，Navigate 组件将使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
 
 ```jsx
 import { Navigate } from 'react-router-dom'
@@ -89,7 +122,8 @@ function Page1() {
 获取路由信息的方式有：useParams、useLocation、useNavigate
 
 **useParams**：它是一个 React Hook，用于获取当前路由的参数。它返回一个对象，其中包含当前路由的所有参数。
-应用场景：当路由路径中包含参数时，可以使用 useParams 来获取这些参数的值。
+
+**应用场景**：当路由路径中包含参数时，可以使用 useParams 来获取这些参数的值。
 
 ```jsx
 import { useParams } from 'react-router-dom'
@@ -106,7 +140,8 @@ function Page2() {
 ```
 
 **useLocation**：它是一个 React Hook，用于获取当前路由的位置信息。它返回一个对象，其中包含当前路由的 URL、路径名、搜索参数等。
-应用场景：当需要获取当前路由的 URL 或路径名时，可以使用 useLocation。
+
+**应用场景**：当需要获取当前路由的 URL 或路径名时，可以使用 useLocation。
 
 ```jsx
 import { useLocation } from 'react-router-dom'
@@ -122,7 +157,8 @@ function Page2() {
 ```
 
 **useNavigate**：它是一个 React Hook，用于在应用程序中导航到另一个页面。它返回一个函数，该函数接受一个 URL 或一个路径名作为参数，并使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
-应用场景：当需要使用编程方式导航到另一个页面时，可以使用 useNavigate。
+
+**应用场景**：当需要使用编程方式导航到另一个页面时，可以使用 useNavigate。
 
 ```jsx
 import { useNavigate } from 'react-router-dom'
@@ -132,9 +168,7 @@ function Page2() {
   return (
     <div>
       <h1>Page2</h1>
-      <button onClick={() => {
-        navigate(-1)
-      }}>back</button>
+      <button onClick={() => { navigate(-1) }} >back</button>
     </div>
   )
 }
@@ -144,27 +178,28 @@ function Page2() {
 
 react-router-dom 提供了`createBrowserRouter`、`createHashRouter`、`createMemoryRouter`、`createStaticRouter` 四种路由模式，其中`createBrowserRouter`是默认的路由模式。
 
-- BrowserRouter：使用 HTML5 的 history API 来管理路由。它会在浏览器地址栏中显示完整的 URL，并且可以与服务器端渲染（SSR）一起使用。这是 React Router 的默认路由模式。
-- HashRouter：使用 URL 的 hash 部分（即 URL 中 # 后面的部分）来管理路由。它会在浏览器地址栏中显示带有 # 的 URL，并且可以与服务器端渲染（SSR）一起使用。
-- MemoryRouter：将路由状态保存在内存中，而不是在浏览器的历史记录中。它不会改变浏览器地址栏中的 URL，并且可以用于测试和开发。
-- StaticRouter：用于服务器端渲染（SSR）。它接受一个 location 参数，该参数指定当前路由的位置。它会在服务器端渲染应用程序时使用，并且不会改变浏览器地址栏中的 URL。
+- `BrowserRouter`：使用 HTML5 的 history API 来管理路由。它会在浏览器地址栏中显示完整的 URL，并且可以与服务器端渲染（SSR）一起使用。这是 React Router 的默认路由模式。
+- `HashRouter`：使用 URL 的 hash 部分（即 URL 中 # 后面的部分）来管理路由。它会在浏览器地址栏中显示带有 # 的 URL，并且可以与服务器端渲染（SSR）一起使用。
+- `MemoryRouter`：将路由状态保存在内存中，而不是在浏览器的历史记录中。它不会改变浏览器地址栏中的 URL，并且可以用于测试和开发。
+- `StaticRouter`：用于服务器端渲染（SSR）。它接受一个 location 参数，该参数指定当前路由的位置。它会在服务器端渲染应用程序时使用，并且不会改变浏览器地址栏中的 URL。
 
 ## 3. 常用hooks
 
-- useRoutes：它是一个 React Hook，用于根据路由配置渲染路由。它接受一个路由配置对象作为参数，并返回一个 React 元素，该元素包含根据路由配置渲染的组件。
-- useNavigate：它是一个 React Hook，用于在应用程序中导航到另一个页面。它返回一个函数，该函数接受一个 URL 或一个路径名作为参数，并使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
-- useParams：它是一个 React Hook，用于获取当前路由的参数。它返回一个对象，其中包含当前路由的所有参数。
-- useLocation：它是一个 React Hook，用于获取当前路由的位置信息。它返回一个对象，其中包含当前路由的 URL、路径名、搜索参数等。
-- useMatch：它是一个 React Hook，用于获取当前路由的匹配信息。它返回一个对象，其中包含当前路由的路径名、参数、是否匹配等。
+- `useRoutes`：它是一个 React Hook，用于根据路由配置渲染路由。它接受一个路由配置对象作为参数，并返回一个 React 元素，该元素包含根据路由配置渲染的组件。
+- `useNavigate`：它是一个 React Hook，用于在应用程序中导航到另一个页面。它返回一个函数，该函数接受一个 URL 或一个路径名作为参数，并使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
+- `useParams`：它是一个 React Hook，用于获取当前路由的参数。它返回一个对象，其中包含当前路由的所有参数。
+- `useLocation`：它是一个 React Hook，用于获取当前路由的位置信息。它返回一个对象，其中包含当前路由的 URL、路径名、搜索参数等。
+- `useMatch`：它是一个 React Hook，用于获取当前路由的匹配信息。它返回一个对象，其中包含当前路由的路径名、参数、是否匹配等。
 
 ## 4. 常见组件
 
-- RouterProvider：它是一个 React 组件，用于提供路由器实例。它接受一个 router 属性，该属性指定要使用的路由器实例。它应该在应用程序的顶层组件中使用，以便在整个应用程序中提供路由器实例。
-- Link：它是一个 React 组件，用于在应用程序中创建链接。它接受一个 to 属性，该属性指定链接的目标 URL。当用户点击链接时，Link 组件将使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
-- Navigate：它是一个 React 组件，用于在应用程序中导航到另一个页面。它接受一个 to 属性，该属性指定目标页面的 URL。当组件被渲染时，Navigate 组件将使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
-- Outlet：它是一个 React 组件，用于渲染当前路由的子路由。它应该在父路由的组件中使用，以便渲染子路由的组件。
-- Route：它是一个 React 组件，用于定义路由。它接受一个 path 属性，该属性指定路由的路径。它还接受一个 element 属性，该属性指定当路由匹配时要渲染的组件。
-- Routes：它是一个 React 组件，用于定义一组路由。它接受一个 children 属性，该属性指定一组 Route 组件。它应该在 RouterProvider 组件中使用，以便提供路由器实例。
+- `RouterProvider`：它是一个 React 组件，用于提供路由器实例。它接受一个 router 属性，该属性指定要使用的路由器实例。它应该在应用程序的顶层组件中使用，以便在整个应用程序中提供路由器实例。
+- `Link`：它是一个 React 组件，用于在应用程序中创建链接。它接受一个 to 属性，该属性指定链接的目标 URL。当用户点击链接时，Link 组件将使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
+- `Navigate`：它是一个 React 组件，用于在应用程序中导航到另一个页面。它接受一个 to 属性，该属性指定目标页面的 URL。
+当组件被渲染时，Navigate 组件将使用 React Router 的导航功能来更新应用程序的当前 URL，并渲染相应的组件。
+- `Outlet`：它是一个 React 组件，用于渲染当前路由的子路由。它应该在父路由的组件中使用，以便渲染子路由的组件。
+- `Route`：它是一个 React 组件，用于定义路由。它接受一个 path 属性，该属性指定路由的路径。它还接受一个 element 属性，该属性指定当路由匹配时要渲染的组件。
+- `Routes`：它是一个 React 组件，用于定义一组路由。它接受一个 children 属性，该属性指定一组 Route 组件。它应该在 RouterProvider 组件中使用，以便提供路由器实例。
 
 ## 5. 原理解析
 

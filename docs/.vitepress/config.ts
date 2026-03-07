@@ -57,10 +57,6 @@ export default defineConfig({
             link: "/projects/项目映射",
           },
           {
-            text:  "智慧储能系统",
-            link: "/projects/智慧储能系统",
-          },
-          {
             text:  "APP",
             link: "/projects/APP",
           },
@@ -71,6 +67,10 @@ export default defineConfig({
           {
             text: "BMS系统",
             link: "/projects/云能管理系统",
+          },
+          {
+            text:  "智慧储能系统",
+            link: "/projects/智慧储能系统",
           },
           {
             text: "小程序",
@@ -218,6 +218,7 @@ export default defineConfig({
               { text: "AST", link: "/front/前端工程化/AST" },
               { text: "工程化", link: "/front/前端工程化/工程化" },
               { text: "webpack", link: "/front/前端工程化/webpack" },
+              { text: "webpack进阶", link: "/front/前端工程化/webpack进阶" },
               { text: "打包工具", link: "/front/前端工程化/打包工具" },
               { text: "自动化", link: "/front/前端工程化/自动化" },
               { text: "微前端", link: "/front/前端工程化/微前端" },
@@ -293,6 +294,7 @@ export default defineConfig({
               { text: "教程", link: "/course/git/git教程" },
               { text: "gitignore", link: "/course/git/gitignore" },
               { text: "git命令", link: "/course/git/git命令" },
+              { text: "git-ai", link: "/course/git/gitai" },
             ],
           },
           {
