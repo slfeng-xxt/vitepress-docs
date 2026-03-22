@@ -52,15 +52,17 @@ p.then(
 2. 状态只变更一次
 3. throw 等同于 reject(try...catch...)
 4. 链式调用
-   4.1 FIFO-回调函数队列 （存储队列）
-   4.2 then 返回的是一个 Promise 对象才能继续支持调用下一个 then（then 返回的结果会传给下一个 then()）
+   - 4.1 FIFO-回调函数队列 （存储队列）
+   - 4.2 then 返回的是一个 Promise 对象才能继续支持调用下一个 then（then 返回的结果会传给下一个 then()）
 5. 其他方法（all race allSettled any)
-   5.1 all([p1,p2,...]) ---如果所有 Promise 都成功，则返回成功结果数组;如果有一个 Promise 失败，则返回这个失败结果；
-   5.2 race() ---哪个 Promise 最快得到结果，就返回那个结果，无论成功失败；
-   5.3 allSettled() ---把每一个 Promise 的结果，集合成数组后返回；
-   5.4 any() ---如果有一个 Promise 成功，则返回这个成功结果;如果所有 Promise 都失败，则报错；
+   - 5.1 all([p1,p2,...]) ---如果所有 Promise 都成功，则返回成功结果数组;如果有一个 Promise 失败，则返回这个失败结果；
+   - 5.2 race() ---哪个 Promise 最快得到结果，就返回那个结果，无论成功失败；
+   - 5.3 allSettled() ---把每一个 Promise 的结果，集合成数组后返回；
+   - 5.4 any() ---如果有一个 Promise 成功，则返回这个成功结果;如果所有 Promise 都失败，则报错；
 
 ## 3. promise 实现
+
+### 3.1 代码实现
 
 ```js
 class MyPromise {
@@ -179,7 +181,12 @@ class MyPromise {
 }
 ```
 
-## 4.async/await（Generator 和 Promise ）
+### 3.2 个人理解
+
+- 通过 Promise 的构造函数，初始化 Promise 的状态和值，并将内部的两个方法传给回调函数并执行这个回调函数，回调函数执行完后，会执行 `resolve` 或 `reject` 方法，从而改变 Promise 的状态和值。并构建带有`then`方法的实例,用于后续的链式调用。
+- 通过 then 方法，接收两个回调函数，并返回一个新的promise实例；在新创建promise的过程中（新的初始化）并且可以取出当前调用then方法的实例初始化后的状态来判断走哪个回调函数。
+如果状态为 pending，则将回调函数存入对应的队列中，等待状态改变后执行。
+如果状态为 fulfilled 或 rejected，则直接执行回调函数。
 
 ### 用同步的方式执行异步操作
 
@@ -243,7 +250,8 @@ fn(10).then((res) => console.log(res)); // 10
 
 ### 5.1 介绍
 
-generator 函数跟普通函数在写法上的区别就是，多了一个星号 \* ，并且只有在 generator 函数中才能使用 yield，而 yield 相当于 generator 函数执行的中途暂停点，而怎么才能暂停后继续走呢？那就得使用到 next 方法，next 方法执行后会返回一个对象，对象中有 value 和 done 两个属性
+generator 函数跟普通函数在写法上的区别就是，多了一个星号 \* ，并且只有在 generator 函数中才能使用 yield，而 yield 相当于 generator 函数执行的中途暂停点，
+而怎么才能暂停后继续走呢？那就得使用到 next 方法，next 方法执行后会返回一个对象，对象中有 value 和 done 两个属性
 
 - value：暂停点后面接的值，也就是 yield 后面接的值；
 - done：是否 generator 函数已走完，没走完为 false，走完为 true；

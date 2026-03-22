@@ -112,6 +112,14 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
+            text: "前端智能体",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "基础", link: "/front/ai/基础"}
+            ]
+          },
+          {
             text: "JavaScript",
             collapsible: true,
             collapsed: true,
@@ -130,7 +138,7 @@ export default defineConfig({
               { text: "垃圾回收", link: "/front/javascript/GC" },
               { text: "运行机制", link: "/front/javascript/运行机制" },
               { text: "函数式编程", link: "/front/javascript/函数式编程" },
-              { text: "es6", link: "/front/javascript/ES6" },
+              { text: "ES6", link: "/front/javascript/ES6" },
               { text: "babel", link: "/front/javascript/编译器" },
             ],
           },
@@ -244,6 +252,7 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
+              { text: "优化", link: "/front/前端性能优化/优化"},
               { text: "缓存", link: "/front/前端性能优化/缓存" },
               { text: "vue性能优化", link: "/front/前端性能优化/vue" },
               { text: "react性能优化 ", link: "/front/前端性能优化/react" },
@@ -405,15 +414,15 @@ export default defineConfig({
         collapsed: true,
         items: [
           {
-            text: "agent",
-            link: "/AI/agent.md",
-          },
-          {
             text: "MCP",
             link: "/AI/MCP.md",
           },
           {
-            text: "skill",
+            text: "agent",
+            link: "/AI/agent.md",
+          },
+          {
+            text: "agentskill",
             link: "/AI/skill.md",
           },
           {

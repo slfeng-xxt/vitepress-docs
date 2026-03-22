@@ -5,6 +5,7 @@
 - [配置相关](https://www.typescriptlang.org/zh/tsconfig/)
 - [训练场](https://www.typescriptlang.org/zh/play)
 - [Ts中文手册](https://typescript.bootcss.com/)
+- [参考项目](https://github.com/cuixiaorui/tdl-ts/tree/main/type-challenges)
 
 ## 1.练习挑战
 
