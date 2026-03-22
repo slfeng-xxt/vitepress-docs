@@ -1,6 +1,6 @@
 # ES6
 
-- [现代 JavaScript 教程](zh.javascript.info)
+- [现代 JavaScript 教程](https://zh.javascript.info)
 
 ```txt
 介绍：
