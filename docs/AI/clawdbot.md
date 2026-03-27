@@ -81,3 +81,29 @@ openclaw gateway
 
 - 在消息列表中点开`开发者小助手`，打开应用
 - 发送消息，机器人回复消息
+
+## 3.其他命令
+
+:::tip
+[官网文档说明](https://openclaw.cc/start/getting-started.html#_3-%E5%90%AF%E5%8A%A8-gateway-%E7%BD%91%E5%85%B3)
+:::
+
+### 3.1 检查是否在本地运行
+
+```cmd
+openclaw gateway status
+```
+
+### 3.2 手动启动
+
+```cmd
+openclaw gateway start
+```
+
+## 4. skills安装
+
+- [clawhub skills](https://clawhub.ai/skills?sort=downloads)
+
+## 5. 应用场景
+
+- <https://github.com/AlexAnys/awesome-openclaw-usecases-zh>
