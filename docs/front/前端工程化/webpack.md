@@ -162,6 +162,11 @@ devServer: {
 }
 ```
 
+### 7.1 工作中遇到的问题
+
+- Q：本地webpack代理后，vue-sse实现的长连接没响应
+- A：webpack-devServer,开启了`compress：true`压缩，压缩算法的块缓存机制会导致sse后端的数据想放入缓存,憋着不给浏览器写入任何数据
+
 ## 8. 工作原理
 
 webpack的工作原理是递归地构建依赖关系图，然后将这些模块打包成一个或多个bundle。在构建过程中，webpack会使用加载器处理非JavaScript文件，使用插件扩展webpack的功能。

@@ -57,6 +57,10 @@ export default defineConfig({
             link: "/projects/项目映射",
           },
           {
+            text: "堡垒机",
+            link: "projects/blj"
+          },
+          {
             text:  "APP",
             link: "/projects/APP",
           },
@@ -116,7 +120,15 @@ export default defineConfig({
             collapsible: true,
             collapsed: true,
             items: [
-              { text: "基础", link: "/front/ai/基础"}
+              { text: "基础知识", link: "/front/ai/基础"},
+            ]
+          },
+          {
+            text: "Electron",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              { text: "Electron基础", link: "/front/electron/基础" },
             ]
           },
           {
@@ -409,7 +421,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "AI",
+        text: "AI基础概念",
         collapsible: true,
         collapsed: true,
         items: [
@@ -422,6 +434,10 @@ export default defineConfig({
             link: "/AI/agent.md",
           },
           {
+            text: "RAG",
+            link: "/AI/RAG.md"
+          },
+          {
             text: "agentskill",
             link: "/AI/skill.md",
           },
@@ -430,10 +446,22 @@ export default defineConfig({
             link: "/AI/clawdbot.md",
           },
           {
+            text: "Harness Engineering",
+            link: "/AI/HarnessEngineering.md",
+          },
+          {
             text: "规划与思考🤔",
             link: "/AI/规划与思考.md",
           },
         ],
+      },
+      {
+        text: "AI全栈",
+        collapsible: true,
+        collapsed: true,
+        items: [
+          { text: "vibe coding", link: "/AI/vibeCoding" },
+        ]
       },
       // {
       //   text: "web3.0",

@@ -69,6 +69,174 @@
 
 ### 3.5 loading组件构建
 
+```vue
+<template>
+  <!-- 如果不需要遮罩，只渲染 spinner -->
+  <view v-if="!withMask" class="loading-spinner" :style="{ '--spinner-color': color }">
+    <view class="line" />
+    <view class="line" />
+    <view class="line" />
+    <view class="circle" />
+  </view>
+
+  <!-- 带遮罩：遮罩覆盖父级或全屏 -->
+  <view
+    v-else
+    class="loading-mask"
+    :class="{ 'loading-mask--fixed': isFixed }"
+    :style="{
+      backgroundColor: maskColor,
+      zIndex,
+    }"
+  >
+    <view class="loading-spinner" :style="{ '--spinner-color': color }">
+      <view class="line" />
+      <view class="line" />
+      <view class="line" />
+      <view class="circle" />
+    </view>
+  </view>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  /**
+   * 是否显示遮罩层
+   */
+  withMask?: boolean
+
+  /**
+   * 遮罩背景色（支持 rgba）
+   * @default 'rgba(0, 0, 0, 0.5)'
+   */
+  maskColor?: string
+
+  /**
+   * 加载动画颜色
+   * @default '#148eff'
+   */
+  color?: string
+
+  /**
+   * 是否使用 fixed 定位（全屏遮罩）
+   * 若 false，则需父容器 position: relative
+   * @default true
+   */
+  isFixed?: boolean
+
+  /**
+   * z-index 层级
+   * @default 9999
+   */
+  zIndex?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  withMask: true,
+  maskColor: 'rgba(220, 214, 214,  .5)',
+  color: '#148eff',
+  isFixed: true,
+  zIndex: 9999,
+})
+</script>
+
+<style lang="scss" scoped>
+// 默认颜色变量（编译时备用）
+$default-color: #148eff;
+
+// ———————— 仅加载动画 ————————
+.loading-spinner {
+  position: relative;
+  width: 13vmin;
+  height: 13vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --spinner-color: #{$default-color};
+
+  .line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: 4vmin solid var(--spinner-color);
+    border-right: 1vmin solid var(--spinner-color);
+    border-bottom: 6vmin solid transparent;
+    border-left: 0 solid transparent;
+
+    &:nth-child(1) {
+      transform: rotateX(60deg) rotateY(0deg);
+      animation: rotate-1 1s linear infinite;
+    }
+
+    &:nth-child(2) {
+      transform: rotateX(60deg) rotateY(60deg);
+      animation: rotate-2 1s linear infinite;
+      animation-delay: -0.6s;
+    }
+
+    &:nth-child(3) {
+      transform: rotateX(60deg) rotateY(-60deg);
+      animation: rotate-3 1s linear infinite;
+      animation-delay: -0.4s;
+    }
+  }
+
+  .circle {
+    position: absolute;
+    transform: translateX(30%) translateY(30%);
+    width: 4vmin;
+    height: 4vmin;
+    border-radius: 50%;
+    background-color: var(--spinner-color);
+    animation: opacity-c 2s linear infinite;
+  }
+}
+
+// ———————— 遮罩层 ————————
+.loading-mask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+// ———————— 动画 keyframes ————————
+@keyframes rotate-1 {
+  to {
+    transform: rotateX(60deg) rotateY(0deg) rotate(360deg);
+  }
+}
+@keyframes rotate-2 {
+  to {
+    transform: rotateX(60deg) rotateY(60deg) rotate(360deg);
+  }
+}
+@keyframes rotate-3 {
+  to {
+    transform: rotateX(60deg) rotateY(-60deg) rotate(360deg);
+  }
+}
+@keyframes opacity-c {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+</style>
+```
+
 ### 3.6 echarts引入
 
 ### 3.7 约定式路由（只需要在这个目录里新增 .vue 文件，启动时执行脚本插件会自动生成对应的 pages.json 文件。）
@@ -85,6 +253,8 @@
 2.退出接口一直循环调用，http.js文件code部分写的有问题
 3.启动页配置
 :::
+
+### 3.11 canvas绘制供电模式的拓扑图
 
 ## 4. 待优化
 
